@@ -22,7 +22,8 @@ the wiki expands as new sources are added.
 
 ```
 HadesWiki/
-├── README.md                          # this file
+├── README.md                          # this file (short overview)
+├── GUIDE.md                           # complete install + usage guide
 ├── AGENT.md                           # operational playbook for LLM agents
 ├── schema.md                          # conventions, frontmatter spec, tag taxonomy
 ├── index.md                           # content catalog of every wiki page
@@ -103,6 +104,21 @@ actually stays maintained.
 The human curates sources and asks questions; the LLM does the bookkeeping.
 The wiki compounds: every source adds to it, every query can be filed back,
 every lint pass catches drift.
+
+## Need More Detail?
+
+For complete installation and usage instructions, see **[GUIDE.md](./GUIDE.md)** —
+it covers every install path (web, Obsidian, LLM CLI, qmd, GitHub Pages), every
+workflow (ingest, query, lint, edit, PR), and a troubleshooting section for
+common issues.
+
+**Quick links from GUIDE.md:**
+- [§ 1.3 — Obsidian Desktop setup](./GUIDE.md#13--obsidian-desktop-recommended-reader)
+- [§ 1.4 — LLM CLI Agent install (Codex / Claude Code / OpenCode / Hermes)](./GUIDE.md#14--llm-cli-agent)
+- [§ 1.5 — qmd search tool](./GUIDE.md#15--search-tooling-qmd)
+- [§ 3.2 — Adding a source](./GUIDE.md#32--adding-a-source)
+- [§ 3.4 — Lint & maintenance](./GUIDE.md#34--lint--maintenance)
+- [§ 5 — Troubleshooting](./GUIDE.md#part-5-troubleshooting)
 
 ## Related
 

@@ -63,3 +63,12 @@
 - Commit pushed: 147478e "Initial commit: HadesWiki (LLM Wiki pattern)"
 - Files: 16 (1,316 insertions)
 - License: MIT
+
+## [2026-06-12] create | GUIDE.md — complete install + usage guide
+- 22.7 KB comprehensive documentation
+- Sections: Choose Your Role, Part 1 Installation (web/clone/Obsidian/LLM CLI/qmd/Pages),
+  Part 2 Configuration, Part 3 Daily Usage (read/ingest/query/lint/edit),
+  Part 4 Workflows by Role (Reader/Curator/Operator/Contributor),
+  Part 5 Troubleshooting (8 common issues), Part 6 Reference
+- README.md updated with deep-link to GUIDE.md sections
+- Covers all 4 LLM CLI options: Codex / Claude Code / OpenCode / Hermes
