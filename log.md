@@ -55,3 +55,11 @@
 - Files: 14 (12 markdown + .gitignore + schema + index + log + AGENT + README + raw source)
 - Total: 10 wiki pages + 3 navigation files + 1 gitignore
 - Lint status before commit: ✓ ALL CLEAN
+
+## [2026-06-12] push | Initial commit pushed to GitHub
+- Remote: https://github.com/podsni/HadesWiki.git
+- Visibility: public
+- Description: "A personal knowledge base built with Karpathy's LLM Wiki pattern - LLM-maintained, persistent, compounding."
+- Commit pushed: 147478e "Initial commit: HadesWiki (LLM Wiki pattern)"
+- Files: 16 (1,316 insertions)
+- License: MIT
