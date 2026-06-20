@@ -247,10 +247,10 @@
     // --- Toggle meta section ---
     const metaToggleBtn = document.getElementById('hw-toggle-meta');
     function updateMetaVisibility() {
-      const metaSec = document.getElementById('hw-meta-section');
-      if (!metaSec) return;
+      const metaWrap = document.getElementById('hw-meta-section-wrap');
+      if (!metaWrap) return;
       const isOpen = localStorage.getItem(LS_META_OPEN) === '1';
-      metaSec.style.display = isOpen ? '' : 'none';
+      metaWrap.style.display = isOpen ? '' : 'none';
       metaToggleBtn.style.opacity = isOpen ? '1' : '0.5';
       metaToggleBtn.title = isOpen ? 'Hide meta pages' : 'Show meta pages';
     }
@@ -419,10 +419,13 @@
   function renderMetaSection(metaPages, container) {
     if (!metaPages || metaPages.length === 0) return;
 
+    const sectionWrap = document.createElement('div');
+    sectionWrap.id = 'hw-meta-section-wrap';
+
     const sectionHeader = document.createElement('div');
     sectionHeader.className = 'hw-section-header';
     sectionHeader.innerHTML = `<span>📑 Meta</span><button class="hw-section-header-toggle" title="Section actions">⋮</button>`;
-    container.appendChild(sectionHeader);
+    sectionWrap.appendChild(sectionHeader);
 
     const section = document.createElement('div');
     section.id = 'hw-meta-section';
@@ -445,7 +448,9 @@
         section.appendChild(fileEl);
       }
     }
-    container.appendChild(section);
+    sectionWrap.appendChild(section);
+    sectionWrap.style.display = 'none'; // wrapper hidden by default too
+    container.appendChild(sectionWrap);
   }
 
   function filterTree(container, q) {
@@ -457,6 +462,11 @@
       container.querySelectorAll('.hw-tree-folder').forEach(f => {
         f.classList.add('open');
       });
+      // Restore meta visibility to its persisted state
+      const metaWrap = document.getElementById('hw-meta-section-wrap');
+      if (metaWrap) {
+        metaWrap.style.display = (localStorage.getItem(LS_META_OPEN) === '1') ? '' : 'none';
+      }
       return;
     }
     // Hide files that don't match
@@ -472,19 +482,16 @@
     });
     // Also check meta section
     const metaSec = document.getElementById('hw-meta-section');
-    if (metaSec) {
+    const metaWrap = document.getElementById('hw-meta-section-wrap');
+    if (metaSec && metaWrap) {
       let metaHasMatch = false;
       metaSec.querySelectorAll('.hw-tree-file').forEach(el => {
         const matches = el.dataset.searchText && el.dataset.searchText.includes(q);
         el.style.display = matches ? '' : 'none';
         if (matches) metaHasMatch = true;
       });
-      metaSec.style.display = metaHasMatch ? '' : 'none';
-      // Show the meta section header if there's a match
-      const metaHeader = metaSec.previousElementSibling;
-      if (metaHeader && metaHeader.classList.contains('hw-section-header')) {
-        metaHeader.style.display = metaHasMatch ? '' : 'none';
-      }
+      // Auto-show wrapper when filter has matches (regardless of LS_META_OPEN)
+      metaWrap.style.display = (metaHasMatch || localStorage.getItem(LS_META_OPEN) === '1') ? '' : 'none';
     }
   }
 
