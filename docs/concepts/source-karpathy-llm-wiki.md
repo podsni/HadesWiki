@@ -32,7 +32,7 @@ detect source drift in one comparison.
 | The core idea | Why this isn't RAG |
 | Architecture | Three layers: raw / wiki / schema |
 | Operations | Ingest, query, lint |
-| Indexing and logging | `index.md` and `log.md` |
+| Indexing and logging | `catalog.md` and `log.md` |
 | Optional: CLI tools | [[qmd]] mentioned |
 | Tips and tricks | [[obsidian]] Web Clipper, Marp, Dataview, graph view |
 | Why this works | Maintenance cost near zero; LLM doesn't get bored |

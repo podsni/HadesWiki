@@ -84,7 +84,7 @@ nav:
   - Home: home.md
   - Install & Usage: GUIDE.md
   - Wiki:
-      - Wiki Index: index.md
+      - Wiki Catalog: catalog.md
       - Activity Log: log.md
       - Concepts:
           - LLM Wiki Pattern: concepts/llm-wiki-pattern.md

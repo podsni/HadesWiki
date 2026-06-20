@@ -21,7 +21,7 @@ A personal knowledge base built with [Karpathy's LLM Wiki pattern](https://gist.
 ## Quick links
 
 - **[🌐 Browse the site](https://podsni.github.io/HadesWiki/)** — Material theme, full-text search, wikilink navigation
-- **[📖 Wiki Index](./docs/index.md)** — full catalog of pages
+- **[📖 Wiki Catalog](./docs/catalog.md)** — full catalog of pages
 - **[📦 Install & Usage Guide](./docs/GUIDE.md)** — clone, Obsidian setup, LLM CLI agent
 - **[🤖 Agent Playbook](./docs/AGENT.md)** — operational playbook for LLM agents maintaining the wiki
 - **[📋 Schema](./docs/schema.md)** — conventions, frontmatter spec, tag taxonomy

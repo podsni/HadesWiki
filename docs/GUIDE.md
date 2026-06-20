@@ -104,7 +104,7 @@ Verify:
 
 ```bash
 ls ~/HadesWiki
-# README.md  AGENT.md  schema.md  index.md  log.md  .gitignore
+# README.md  AGENT.md  schema.md  catalog.md  log.md  .gitignore
 # raw/  entities/  concepts/  comparisons/  queries/
 ```
 
@@ -237,7 +237,7 @@ paste the contents of `AGENT.md` into your first message manually.
 
 **Time:** 5 minutes · **Platform:** macOS / Linux · **Skill:** comfortable with terminal
 
-Skip this until your wiki exceeds ~100 pages. Below that, `index.md` plus
+Skip this until your wiki exceeds ~100 pages. Below that, `catalog.md` plus
 `grep` is enough.
 
 **Install qmd:**
@@ -308,7 +308,7 @@ theme: material
 docs_dir: .
 nav:
   - Home: README.md
-  - Index: index.md
+  - Index: catalog.md
   - Schema: schema.md
   - Agent: AGENT.md
   - Log: log.md
@@ -383,7 +383,7 @@ git remote set-url origin git@github.com:<your-username>/HadesWiki.git
 
 | Action | How |
 |---|---|
-| Open the catalog | Click `index.md` in the file panel |
+| Open the catalog | Click `catalog.md` in the file panel |
 | See activity timeline | Click `log.md` |
 | Visualize page graph | Press `Cmd/Ctrl + G` |
 | Follow a wikilink | `Cmd/Ctrl + Click` on any `[[link]]` |
@@ -400,7 +400,7 @@ cd ~/HadesWiki
 find . -name "*.md" -not -path "./raw/*" | sort
 
 # Read the catalog
-less index.md
+less catalog.md
 
 # Grep for a topic
 grep -rn "your topic" entities/ concepts/ comparisons/ queries/
@@ -470,10 +470,10 @@ codex "process raw/articles/my-article.md"   # or claude / opencode / hermes
 
 The agent will:
 
-1. Read `AGENT.md`, `schema.md`, `index.md`, and recent `log.md` (orientation)
+1. Read `AGENT.md`, `schema.md`, `catalog.md`, and recent `log.md` (orientation)
 2. Discuss the source with you
 3. Write or update wiki pages (entities/concepts/comparisons)
-4. Update `index.md`
+4. Update `catalog.md`
 5. Append to `log.md`
 6. Report what changed
 
@@ -483,7 +483,7 @@ The agent will:
 cd ~/HadesWiki
 # What's new?
 git status
-git diff index.md log.md
+git diff catalog.md log.md
 
 # Lint check (see § 3.4)
 # (run the lint script)
@@ -499,7 +499,7 @@ codex "according to the wiki, what is the difference between RAG and the LLM Wik
 The agent will:
 
 1. Orient
-2. Read `index.md` → identify `rag-vs-llm-wiki` and `llm-wiki-pattern`
+2. Read `catalog.md` → identify `rag-vs-llm-wiki` and `llm-wiki-pattern`
 3. Read those pages
 4. Synthesize an answer with citations
 5. Optionally file the answer as a new `queries/<topic>.md` page
@@ -574,7 +574,7 @@ severity (Critical / Warning / Notice).
 You can edit any wiki page by hand. Convention reminders:
 
 - **Filenames:** lowercase, hyphens, no spaces
-- **Frontmatter:** required for every wiki page (except `index.md`, `log.md`)
+- **Frontmatter:** required for every wiki page (except `catalog.md`, `log.md`)
 - **Tags:** must come from the taxonomy in `schema.md` — add new tags there first
 - **Wikilinks:** `[[page-name]]` — case-insensitive match to filename
 - **Provenance:** `^[raw/articles/source.md]` at end of synthesized paragraphs
@@ -599,7 +599,7 @@ git push
 ### Reader
 
 ```
-Browse → index.md → click page → read → follow wikilinks → graph view
+Browse → catalog.md → click page → read → follow wikilinks → graph view
 ```
 
 Time investment: 5 minutes to learn Obsidian basics. Hours of exploration
@@ -628,7 +628,7 @@ Time per source: 10–30 minutes depending on length and importance.
 ```
 Session starts
         ↓
-ORIENT: read AGENT.md, schema.md, index.md, log tail
+ORIENT: read AGENT.md, schema.md, catalog.md, log tail
         ↓
 Wait for user instruction: ingest / query / lint / edit
         ↓
@@ -776,7 +776,7 @@ print(yaml.safe_load(fm))
 | `README.md` | Human-facing overview | Human | ✅ |
 | `AGENT.md` | LLM agent operational playbook | Co-evolved | ✅ |
 | `schema.md` | Conventions, taxonomy, thresholds | Co-evolved | ✅ |
-| `index.md` | Content catalog | Agent | ✅ |
+| `catalog.md` | Content catalog | Agent | ✅ |
 | `log.md` | Chronological action log | Agent | ✅ (append) |
 | `.gitignore` | Local-only exclusions | Human | ✅ |
 | `raw/articles/` | Web articles, gists | Human | ❌ (immutable) |
@@ -862,7 +862,7 @@ Wiki content: MIT. Raw sources retain their original licenses — see each
 - **[Home page](home.md)** — short overview
 - **[AGENT.md](AGENT.md)** — LLM agent playbook
 - **[schema.md](./schema.md)** — full conventions
-- **[index.md](./index.md)** — content catalog
+- **[catalog.md](catalog.md)** — content catalog
 - **[log.md](./log.md)** — activity timeline
 - **GitHub:** https://github.com/podsni/HadesWiki
 

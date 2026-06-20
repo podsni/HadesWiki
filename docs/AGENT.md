@@ -7,7 +7,7 @@ OpenCode, Hermes — same workflow.
 
 A persistent, LLM-maintained knowledge base built with Karpathy's LLM Wiki
 pattern. The agent (you) own the `entities/`, `concepts/`, `comparisons/`, and
-`queries/` directories, plus `index.md`, `log.md`, and `schema.md`. The user owns
+`queries/` directories, plus `catalog.md`, `log.md`, and `schema.md`. The user owns
 sourcing, exploration, and the questions that drive growth. `raw/` is read-only.
 
 ## Start of Every Session — Orient First
@@ -16,7 +16,7 @@ Before doing anything, read in this order:
 
 1. **`AGENT.md`** (this file) — your workflow
 2. **`schema.md`** — conventions, frontmatter spec, tag taxonomy
-3. **`index.md`** — what pages exist and their one-line summaries
+3. **`catalog.md`** — what pages exist and their one-line summaries
 4. **`log.md`** — last 30 entries via `read_file` with offset/limit, or:
    ```bash
    grep "^## \[" /root/HadesWiki/log.md | tail -10
@@ -34,7 +34,7 @@ violations of the schema. It takes 30 seconds and prevents real damage.
 | `concepts/` | Agent | ✅ | One page per topic/concept |
 | `comparisons/` | Agent | ✅ | Side-by-side analyses |
 | `queries/` | Agent | ✅ | Filed query answers worth keeping |
-| `index.md` | Agent | ✅ | Content catalog — update on every ingest |
+| `catalog.md` | Agent | ✅ | Content catalog — update on every ingest |
 | `log.md` | Agent | ✅ | Append-only action log |
 | `schema.md` | Co-evolved | ✅ | Conventions, taxonomy, thresholds |
 | `AGENT.md` | Co-evolved | ✅ | This file |
@@ -68,7 +68,7 @@ Then:
      `^[raw/articles/source-file.md]`
    - If the claim is opinion-heavy or fast-moving, set `confidence: low`
    - If contradictory, mark `contested: true` and `contradictions: [slug]`
-5. Update `index.md` — add new pages alphabetically under the correct section;
+5. Update `catalog.md` — add new pages alphabetically under the correct section;
    bump the "Total pages" and "Last updated" header.
 6. Append to `log.md`:
    ```
@@ -89,13 +89,13 @@ When the user asks a question:
 
 ```bash
 # 1. Orient (always)
-grep -l "<keyword>" entities/ concepts/ comparisons/ queries/ schema.md index.md log.md 2>/dev/null
+grep -l "<keyword>" entities/ concepts/ comparisons/ queries/ schema.md catalog.md log.md 2>/dev/null
 ```
 
 Or use `search_files` for content search across the wiki.
 
 Then:
-1. Read `index.md` to identify candidate pages.
+1. Read `catalog.md` to identify candidate pages.
 2. For wikis with 100+ pages, also `search_files` for keywords across `.md` files.
 3. Read relevant pages with `read_file`.
 4. Synthesize. Cite wiki pages by name: "Based on `llm-wiki-pattern` and
@@ -124,8 +124,8 @@ shell session and run a script that checks:
 5. **Tag taxonomy** — every tag in use appears in `schema.md`.
 6. **Page size** — flag any page > 200 lines for splitting.
 7. **Outbound link minimum** — every wiki page has ≥2 outbound `[[wikilinks]]`
-   (except `index.md`, `log.md`, `schema.md`).
-8. **Index completeness** — every wiki page appears in `index.md`.
+   (except `catalog.md`, `log.md`, `schema.md`).
+8. **Index completeness** — every wiki page appears in `catalog.md`.
 9. **Source drift** — recompute sha256 on each `raw/` file; flag mismatches.
 10. **Log rotation** — if `log.md` exceeds 500 entries, rotate:
     ```
@@ -150,7 +150,7 @@ Append to `log.md`:
 |---|---|---|
 | Editing `raw/` | Breaks the source-of-truth invariant | Don't. Period. |
 | Skipping orientation | Duplicate pages, missed cross-references | Always read AGENT + schema + index + log tail first |
-| Forgetting `index.md` | Wiki becomes unnavigable | Update on every ingest/query |
+| Forgetting `catalog.md` | Wiki becomes unnavigable | Update on every ingest/query |
 | Forgetting `log.md` | Loss of timeline, can't debug drift | Append on every action |
 | Creating pages for passing mentions | Wiki bloat | Follow Page Thresholds |
 | Pages without `[[wikilinks]]` | Invisible islands | Every page must link ≥2 others |
@@ -163,7 +163,7 @@ Append to `log.md`:
 
 ## Frontmatter Spec
 
-Every wiki page (except `index.md`, `log.md`) starts with:
+Every wiki page (except `catalog.md`, `log.md`) starts with:
 
 ```yaml
 ---
@@ -214,7 +214,7 @@ add it to the taxonomy section first, then use it on pages.
 
 ## Performance Notes
 
-- For wikis < 100 pages, `index.md` is sufficient for navigation.
+- For wikis < 100 pages, `catalog.md` is sufficient for navigation.
 - For wikis 100–1000 pages, add `qmd` or similar local search.
 - For wikis > 1000 pages, consider splitting by sub-domain into multiple vaults.
 - A single Python lint script (under ~50 lines) covers all 7 lint checks.

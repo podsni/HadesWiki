@@ -26,7 +26,7 @@ HadesWiki/
 ├── GUIDE.md                           # complete install + usage guide
 ├── AGENT.md                           # operational playbook for LLM agents
 ├── schema.md                          # conventions, frontmatter spec, tag taxonomy
-├── index.md                           # content catalog of every wiki page
+├── catalog.md                           # content catalog of every wiki page
 ├── log.md                             # chronological action log
 │
 ├── raw/                               # IMMUTABLE source layer
@@ -52,11 +52,11 @@ Everything else is LLM-generated and LLM-maintained.
 2. **Open as vault** → point at this directory.
 3. Open **Graph View** — you'll see `llm-wiki-pattern` at the centre, with the
    other pages radiating out via `[[wikilinks]]`.
-4. Open `index.md` for the catalog, or `log.md` for the activity timeline.
+4. Open `catalog.md` for the catalog, or `log.md` for the activity timeline.
 
 ### Browse with any text editor
 
-Everything is plain markdown. No database, no build step. `index.md` is the
+Everything is plain markdown. No database, no build step. `catalog.md` is the
 table of contents; everything cross-references via `[[wikilinks]]`.
 
 ### Use with an LLM agent
@@ -71,7 +71,7 @@ workflow documented there.
 - **Sources ingested**: 1 (Karpathy's LLM Wiki gist, sha256-verified)
 - **Lint status**: ✓ all clean (0 broken links, 0 orphans, 0 frontmatter issues)
 
-See `index.md` for the full catalog and `log.md` for the activity log.
+See `catalog.md` for the full catalog and `log.md` for the activity log.
 
 ## How to Add a Source
 
@@ -79,7 +79,7 @@ See `index.md` for the full catalog and `log.md` for the activity log.
 2. Add frontmatter with the source URL, ingestion date, and sha256 of the body.
 3. Tell your LLM agent: *"Process `raw/articles/<filename>.md`"*.
 4. The agent will orient itself from `AGENT.md`, write or update wiki pages,
-   update `index.md`, and append to `log.md`.
+   update `catalog.md`, and append to `log.md`.
 
 Or do it manually following the schema in `schema.md` and the workflow in `AGENT.md`.
 

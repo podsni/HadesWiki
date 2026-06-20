@@ -9,7 +9,7 @@
 - Domain: knowledge-base methodology (Karpathy's LLM Wiki pattern)
 - Path: /root/HadesWiki
 - Structure created: raw/{articles,papers,transcripts,assets}/ + entities/ + concepts/ + comparisons/ + queries/ + _meta/
-- Files written: SCHEMA.md, index.md, log.md
+- Files written: SCHEMA.md, catalog.md, log.md
 
 ## [2026-06-12] ingest | Karpathy's "LLM Wiki" gist
 - Source: https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f
@@ -24,7 +24,7 @@
   - concepts/source-karpathy-llm-wiki.md
   - comparisons/rag-vs-llm-wiki.md
   - queries/synthesis-web-vs-rag-vs-llm-wiki.md
-- Pages updated: index.md (catalog), log.md (this entry)
+- Pages updated: catalog.md (catalog), log.md (this entry)
 - Total pages: 10
 
 ## [2026-06-12] lint | Initial health-check
@@ -75,10 +75,10 @@
 
 ## [2026-06-12] restructure | Move wiki content into docs/ for MkDocs
 - Renamed all top-level wiki files: README.md, GUIDE.md, AGENT.md, schema.md,
-  index.md, log.md → moved to docs/
+  catalog.md, log.md → moved to docs/
 - Subdirs (entities/, concepts/, comparisons/, queries/, raw/) moved into docs/
 - New repo-root README.md: slim landing page pointing to the live site
-- docs/home.md: was docs/README.md, renamed to avoid clash with index.md
+- docs/home.md: was docs/README.md, renamed to avoid clash with catalog.md
 
 ## [2026-06-12] create | MkDocs Material site
 - mkdocs.yml: Material theme with deep purple / deep orange palette,
@@ -95,3 +95,12 @@
 - Source: main branch
 - Output: gh-pages (via actions/deploy-pages)
 - URL: https://podsni.github.io/HadesWiki/
+
+## [2026-06-12] restructure | Rename index.md → catalog.md for MkDocs home
+- MkDocs auto-uses index.md as site root (`/`)
+- Wanted Home page (home.md) at `/` instead → renamed index.md to catalog.md
+- Updated 40 internal references across 6 files (schema.md, AGENT.md, home.md,
+  GUIDE.md, log.md, source-karpathy-llm-wiki.md)
+- Nav now: Home > Install & Usage > Wiki (Catalog, Activity Log, Concepts...)
+- raw/articles/karpathy-llm-wiki.md: untouched (raw/ is immutable)
+- Verified: mkdocs build --strict passes with 0 warnings

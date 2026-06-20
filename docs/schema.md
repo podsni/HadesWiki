@@ -28,7 +28,7 @@ was said**.
 - Use double-bracket links (`[[page-name]]`) to cross-reference between pages — minimum
   2 outbound links per page, 1 inbound target ideally
 - When updating a page, always bump the `updated` date
-- Every new page must be added to `index.md` under the correct section, alphabetically
+- Every new page must be added to `catalog.md` under the correct section, alphabetically
 - Every action must be appended to `log.md` with a `## [YYYY-MM-DD] action | subject` prefix
 - **Provenance markers:** On pages that synthesize 3+ sources, append
   `^[raw/articles/source-file.md]` at the end of paragraphs whose claims come from
@@ -37,7 +37,7 @@ was said**.
   or single-source claims. Mark `contested: true` and add `contradictions: [slug]`
   when a page disagrees with another page.
 - **Never edit `raw/`** — sources are immutable. Corrections go into wiki pages.
-- **Always orient first** at session start: read SCHEMA.md, index.md, and the last
+- **Always orient first** at session start: read SCHEMA.md, catalog.md, and the last
   30 lines of log.md before doing anything else.
 
 ## Frontmatter
@@ -142,7 +142,7 @@ When new information conflicts with existing content:
 ```bash
 WIKI=/root/HadesWiki
 read_file "$WIKI/SCHEMA.md"            # this file
-read_file "$WIKI/index.md"             # what's here
+read_file "$WIKI/catalog.md"             # what's here
 read_file "$WIKI/log.md" offset=<last 30 lines>   # what's been done
 ```
 
@@ -153,7 +153,7 @@ duplicate pages, missed cross-references, and contradicting the schema.
 
 - **Never modify files in `raw/`** — sources are immutable.
 - **Always orient first** — read SCHEMA + index + recent log before any operation.
-- **Always update index.md and log.md** — skipping this degrades the wiki.
+- **Always update catalog.md and log.md** — skipping this degrades the wiki.
 - **Don't create pages for passing mentions** — follow Page Thresholds.
 - **Don't create pages without cross-references** — isolated pages are invisible.
   Every page must link to at least 2 other pages.
