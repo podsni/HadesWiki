@@ -80,4 +80,4 @@ synthesis tax; you never pay the retrieval tax again.
 - [[rag-vs-llm-wiki]] — closer comparison
 - [[memex]] — historical antecedent
 - [[operations]] — what makes the wiki compound
-- [[qmd]] — when [[index]] isn't enough
+- [[qmd]] — when [[catalog]] isn't enough

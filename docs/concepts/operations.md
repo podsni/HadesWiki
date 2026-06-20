@@ -22,7 +22,7 @@ You drop a new source into `raw/` and tell the LLM to process it. Flow:
    `raw/` subdirectory). Add `source_url`, `ingested`, and `sha256` frontmatter.
 2. Discuss key takeaways with the user — what's interesting, what matters for the
    domain.
-3. Check what already exists in [[index]] and across pages — entities/concepts
+3. Check what already exists in [[catalog]] and across pages — entities/concepts
    may already be covered.
 4. Write or update wiki pages:
    - **New entity/concept** only if it meets Page Thresholds (2+ source mentions or
@@ -34,7 +34,7 @@ You drop a new source into `raw/` and tell the LLM to process it. Flow:
    - Provenance markers (`^[raw/articles/source.md]`) on paragraphs whose claims
      trace to a specific source.
    - Set `confidence` field for opinion-heavy, fast-moving, or single-source claims.
-5. Update [[index]] — add new pages under correct section, alphabetically; bump
+5. Update [[catalog]] — add new pages under correct section, alphabetically; bump
    "Total pages" and "Last updated".
 6. Append to [[log]]: `## [YYYY-MM-DD] ingest | Source Title`, listing every file
    created or updated.
@@ -47,7 +47,7 @@ compounding effect. ^[raw/articles/karpathy-llm-wiki.md]
 
 You ask questions against the wiki. Flow:
 
-1. Read [[index]] to identify relevant pages.
+1. Read [[catalog]] to identify relevant pages.
 2. For wikis with 100+ pages, also `search_files` across all `.md` files —
    the index alone may miss content.
 3. Read the relevant pages with `read_file`.
@@ -67,7 +67,7 @@ Periodically ask the LLM to health-check the wiki. Things to check:
 
 1. **Orphan pages** — zero inbound cross-references. Programmatic scan.
 2. **Broken wikilinks** — cross-references pointing to non-existent pages.
-3. **Index completeness** — every wiki page appears in [[index]].
+3. **Index completeness** — every wiki page appears in [[catalog]].
 4. **Frontmatter validation** — every page has required fields. Tags in taxonomy.
 5. **Stale content** — `updated` date > 90 days older than the most recent source
    mentioning the same entities.
@@ -90,6 +90,6 @@ Periodically ask the LLM to health-check the wiki. Things to check:
 
 - [[llm-wiki-pattern]] — the pattern itself
 - [[schema]] — conventions the operations enforce
-- [[index]] — content catalog updated on every ingest
+- [[catalog]] — content catalog updated on every ingest
 - [[log]] — chronological action log
 - [[rag-vs-llm-wiki]] — alternative paradigm

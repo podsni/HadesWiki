@@ -12,11 +12,11 @@ confidence: medium
 
 Local search engine for markdown files. Hybrid BM25/vector search with LLM
 re-ranking, all on-device. The recommended [[operations|search tool]] when an
-[[llm-wiki-pattern|LLM Wiki]] outgrows the [[index]] file approach. ^[raw/articles/karpathy-llm-wiki.md]
+[[llm-wiki-pattern|LLM Wiki]] outgrows the [[catalog]] file approach. ^[raw/articles/karpathy-llm-wiki.md]
 
 ## Why It's Mentioned
 
-At small scale the [[index]] file is enough to navigate a wiki — read it, identify
+At small scale the [[catalog]] file is enough to navigate a wiki — read it, identify
 relevant pages, drill in. At larger scale (hundreds of pages, thousands of pages)
 the index alone is insufficient: it can miss pages, especially for cross-cutting
 queries that span multiple sections. ^[raw/articles/karpathy-llm-wiki.md]
@@ -34,7 +34,7 @@ qmd fills that gap:
 
 ## When to Adopt
 
-- Wiki exceeds ~100 pages and [[index]] becomes unwieldy.
+- Wiki exceeds ~100 pages and [[catalog]] becomes unwieldy.
 - Cross-cutting queries that span entities/concepts/comparisons.
 - Bulk lint passes where you need to find every page mentioning a tag.
 
@@ -49,5 +49,5 @@ frontmatter. Sufficient for wikis under a few hundred pages.
 ## Related
 
 - [[operations]] — query workflow that may use qmd
-- [[index]] — what qmd complements
+- [[catalog]] — what qmd complements
 - [[llm-wiki-pattern]] — the broader pattern qmd supports

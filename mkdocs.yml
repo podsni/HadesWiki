@@ -14,19 +14,25 @@ theme:
   name: material
   features:
     - navigation.instant
+    - navigation.instant.progress
     - navigation.tracking
     - navigation.tabs
+    - navigation.tabs.sticky
     - navigation.sections
     - navigation.expand
     - navigation.top
     - navigation.indexes
+    - navigation.footer
     - toc.follow
     - search.suggest
     - search.highlight
     - search.share
     - content.code.copy
+    - content.code.annotate
     - content.tabs.link
     - content.tooltips
+    - content.action.edit
+    - content.action.view
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
@@ -61,11 +67,17 @@ markdown_extensions:
       permalink: true
       toc_depth: 3
   - pymdownx.details
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.tabbed:
       alternate_style: true
   - pymdownx.highlight:
       anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.tasklist:
@@ -75,16 +87,29 @@ markdown_extensions:
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.smartsymbols
   - pymdownx.keys
+  - pymdownx.caret
+  - pymdownx.tilde
+  - pymdownx.mark
+  - pymdownx.betterem:
+      smart_enable: all
 
 plugins:
   - search:
       lang: en
+  - wikilinks:
+      aliases:
+        index: catalog
+        catalog: catalog
+      ignore_missing: false
+      missing_class: wikilink-missing
 
 nav:
   - Install & Usage: GUIDE.md
   - Wiki:
       - Wiki Catalog: catalog.md
       - Activity Log: log.md
+      - Graph View: graph.md
+      - Tag Index: tags.md
       - Concepts:
           - LLM Wiki Pattern: concepts/llm-wiki-pattern.md
           - Operations: concepts/operations.md
@@ -102,6 +127,12 @@ nav:
   - Agent Playbook: AGENT.md
   - Raw Sources:
       - Karpathy's LLM Wiki gist: raw/articles/karpathy-llm-wiki.md
+
+extra_css:
+  - assets/extra.css
+
+extra_javascript:
+  - assets/extra.js
 
 extra:
   generator: false

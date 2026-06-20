@@ -50,7 +50,7 @@ RAG, not just a tooling variant. ^[raw/articles/karpathy-llm-wiki.md]
 They aren't mutually exclusive. A wiki can:
 
 - Ingest from a RAG system (RAG finds the chunks, LLM extracts and files them)
-- Use [[qmd]] or similar BM25/vector search over wiki pages when the [[index]] is
+- Use [[qmd]] or similar BM25/vector search over wiki pages when the [[catalog]] is
   too small to navigate a large corpus
 - Embed wiki pages for retrieval-augmented chat where the synthesis itself is the
   corpus being searched

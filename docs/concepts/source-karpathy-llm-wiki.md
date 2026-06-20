@@ -58,7 +58,7 @@ The gist gives us:
 - [[obsidian]] — concept, typical IDE
 - [[qmd]] — concept, search tool
 - [[karpathy]] — entity, the author
-- [[index]] — content catalog (updated)
+- [[catalog]] — content catalog (updated)
 - [[log]] — chronological action log (updated)
 
 ## Re-ingest Behavior

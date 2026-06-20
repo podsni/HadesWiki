@@ -88,13 +88,29 @@
 - LICENSE: MIT
 - Build verified: mkdocs build --strict passes with 0 warnings (16 HTML pages, 3.5MB)
 - Roamlinks plugin removed (false-positive noise from literal [[xxx]] examples;
-  full nav covers navigation; Obsidian handles [[wikilinks]] natively)
+  - Verified: mkdocs build --strict passes with 0 warnings
 
-## [2026-06-12] deploy | GitHub Pages deployment
-- Workflow: .github/workflows/pages.yml
-- Source: main branch
-- Output: gh-pages (via actions/deploy-pages)
-- URL: https://podsni.github.io/HadesWiki/
+  ## [2026-06-12] feat(pages) | Interactive site upgrade
+  - Custom MkDocs plugin: mkdocs_wikilinks/ (Python package, ~300 LOC, pyproject.toml)
+    - Resolves [[wikilinks]] to clickable links; skips code spans/blocks
+    - Supports [[page|alias]] and [[page#heading]] syntax
+    - Records backlinks; renders a "Linked from" panel at the bottom of every page
+  - Mermaid diagram support added (mkdocs-material built-in via pymdownx.superfences)
+  - New auto-generated pages:
+    - docs/graph.md — full wiki graph as interactive Mermaid flowchart
+    - docs/tags.md — tag-based page index (38 tags)
+  - New assets:
+    - docs/assets/extra.css — wikilink colors, backlinks panel, tag chips, animations
+    - docs/assets/extra.js — keyboard shortcuts (/, Esc), smooth scroll, fullscreen mermaid
+  - scripts/build_graph.py — regenerates graph.md and tags.md on every build
+  - Workflow updated: install plugin, run graph generator, then build
+  - Theme features added: navigation.instant.progress, navigation.footer,
+    content.code.annotate, content.action.edit, content.action.view
+  - Replaced 13 stale [[index]] wikilinks with [[catalog]] (after index.md → catalog.md rename)
+  - schema.md updated to document interactive features
+  - Verified: mkdocs build --strict passes; 18 HTML pages, 3.7MB
+
+  ## [2026-06-12] deploy | GitHub Pages deployment
 
 ## [2026-06-12] restructure | Rename index.md → catalog.md for MkDocs home
 - MkDocs auto-uses index.md as site root (`/`)

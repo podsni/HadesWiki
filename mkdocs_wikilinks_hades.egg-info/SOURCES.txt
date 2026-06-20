@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+mkdocs_wikilinks/README.md
+mkdocs_wikilinks/__init__.py
+mkdocs_wikilinks/plugin.py
+mkdocs_wikilinks_hades.egg-info/PKG-INFO
+mkdocs_wikilinks_hades.egg-info/SOURCES.txt
+mkdocs_wikilinks_hades.egg-info/dependency_links.txt
+mkdocs_wikilinks_hades.egg-info/entry_points.txt
+mkdocs_wikilinks_hades.egg-info/requires.txt
+mkdocs_wikilinks_hades.egg-info/top_level.txt

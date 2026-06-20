@@ -14,7 +14,7 @@
 - [[operations|operations]] — The three core operations an LLM performs against the wiki: ingest, query, lint.
 - [[memex|memex]] — Vannevar Bush's 1945 vision for a personal curated knowledge store with associative trails; the historical antecedent of the wiki pattern.
 - [[obsidian|obsidian]] — Markdown editor and graph viewer; Karpathy's recommended IDE for browsing the wiki while the LLM agent writes to it.
-- [[qmd|qmd]] — Local BM25 + vector + LLM-reranked search over markdown; supplements [[index]] when the wiki outgrows simple catalog navigation.
+- [[qmd|qmd]] — Local BM25 + vector + LLM-reranked search over markdown; supplements [[catalog]] when the wiki outgrows simple catalog navigation.
 - [[source-karpathy-llm-wiki|source-karpathy-llm-wiki]] — Summary page for the raw ingest of Karpathy's gist; lists every wiki page it touched.
 
 ## Comparisons

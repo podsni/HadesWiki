@@ -1,0 +1,176 @@
+/* HadesWiki custom styles */
+
+/* === Wikilink styling === */
+a[href]:not(.md-button):not(.md-tabs__link):not(.md-nav__link):not(.md-source) {
+  /* Standard markdown links */
+}
+
+/* Highlight wikilinks — they don't have a class by default, but we style
+   internal links differently from external by checking the href pattern.
+   Internal links start with ./ or ../ or /HadesWiki/ */
+.md-content a[href^="./"]:not(.md-button):not(.md-tabs__link),
+.md-content a[href^="../"]:not(.md-button):not(.md-tabs__link) {
+  color: var(--md-accent-fg-color);
+  font-weight: 500;
+}
+
+/* Missing wikilink (target page doesn't exist) */
+.wikilink-missing {
+  display: inline-block;
+  padding: 0 0.3em;
+  border-radius: 0.2em;
+  background: var(--md-default-fg-color--lightest);
+  color: var(--md-default-fg-color--light);
+  text-decoration: line-through;
+  font-style: italic;
+  cursor: help;
+}
+
+/* === Backlinks panel === */
+.wikilinks-backlinks {
+  margin-top: 3rem;
+  padding: 1.5rem;
+  border-left: 4px solid var(--md-accent-fg-color);
+  background: var(--md-default-bg-color);
+  border-radius: 0.2rem;
+  box-shadow: var(--md-shadow-z1);
+}
+
+.wikilinks-backlinks h2 {
+  margin-top: 0 !important;
+  font-size: 1.1rem !important;
+  color: var(--md-default-fg-color--light);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.wikilinks-backlinks ul {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.wikilinks-backlinks li {
+  padding: 0.3rem 0;
+  border-bottom: 1px dashed var(--md-default-fg-color--lightest);
+}
+
+.wikilinks-backlinks li:last-child {
+  border-bottom: none;
+}
+
+/* === Graph view === */
+.graph-view {
+  margin: 2rem 0;
+  padding: 1rem;
+  background: var(--md-code-bg-color);
+  border-radius: 0.5rem;
+  overflow: auto;
+}
+
+.graph-view svg {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+}
+
+/* === Tag chips === */
+.tag-chip {
+  display: inline-block;
+  padding: 0.2em 0.6em;
+  margin: 0.1em 0.2em;
+  background: var(--md-accent-fg-color--transparent);
+  color: var(--md-accent-fg-color);
+  border-radius: 1em;
+  font-size: 0.85em;
+  font-weight: 500;
+  text-decoration: none !important;
+  transition: background 0.2s;
+}
+
+.tag-chip:hover {
+  background: var(--md-accent-fg-color);
+  color: var(--md-primary-bg-color);
+}
+
+.tag-section {
+  margin: 2rem 0;
+}
+
+.tag-section h3 {
+  margin-bottom: 0.5rem;
+  text-transform: capitalize;
+}
+
+.tag-section .tag-pages {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.tag-section .tag-page {
+  padding: 0.5rem 0.8rem;
+  border-left: 3px solid var(--md-accent-fg-color);
+  background: var(--md-default-bg-color--light);
+  border-radius: 0.2rem;
+  transition: transform 0.15s;
+}
+
+.tag-section .tag-page:hover {
+  transform: translateX(4px);
+  background: var(--md-accent-fg-color--transparent);
+}
+
+/* === Improved search === */
+.md-search-result mark {
+  background: var(--md-accent-fg-color--transparent);
+  color: var(--md-accent-fg-color);
+  padding: 0 0.1em;
+}
+
+/* === Mermaid diagram theming === */
+.mermaid {
+  background: transparent !important;
+  text-align: center;
+  margin: 1.5rem 0;
+}
+
+/* === Page metadata footer === */
+.page-metadata {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--md-default-fg-color--lightest);
+  font-size: 0.85em;
+  color: var(--md-default-fg-color--light);
+}
+
+/* === Index/tag list styling === */
+.md-typeset .grid.cards {
+  grid-gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  margin: 1rem 0;
+}
+
+.md-typeset .grid.cards > * {
+  background: var(--md-default-bg-color--light);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.md-typeset .grid.cards > *:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--md-shadow-z2);
+}
+
+/* === Animation for SPA page transitions === */
+.md-main__inner {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

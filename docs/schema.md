@@ -26,7 +26,8 @@ was said**.
 - File names: lowercase, hyphens, no spaces (e.g. `llm-wiki-pattern.md`)
 - Every wiki page starts with YAML frontmatter (see Frontmatter block below)
 - Use double-bracket links (`[[page-name]]`) to cross-reference between pages — minimum
-  2 outbound links per page, 1 inbound target ideally
+  2 outbound links per page, 1 inbound target ideally. These render as
+  **clickable links** on the published site via the custom wikilinks plugin.
 - When updating a page, always bump the `updated` date
 - Every new page must be added to `catalog.md` under the correct section, alphabetically
 - Every action must be appended to `log.md` with a `## [YYYY-MM-DD] action | subject` prefix
@@ -161,6 +162,27 @@ duplicate pages, missed cross-references, and contradicting the schema.
 - **Tags must come from the taxonomy** — freeform tags decay into noise.
 - **Keep pages scannable** — readable in 30 seconds. Split pages over 200 lines.
 - **Ask before mass-updating** — if an ingest would touch 10+ existing pages, confirm.
+
+## Interactive features on the published site
+
+The GitHub Pages site (`https://podsni.github.io/HadesWiki/`) has several
+interactive features powered by the custom `mkdocs_wikilinks/` plugin:
+
+| Feature | What it does |
+|---|---|
+| **Clickable `[[wikilinks]]`** | `[[page-name]]` resolves to a clickable link. Supports `[[page\|display]]` and `[[page#heading]]`. Skips code spans/blocks. |
+| **Backlinks panel** | Every page shows an inline panel listing other pages that link to it (auto-generated). |
+| **Graph view** | A Mermaid-rendered flowchart of all wiki pages and their connections at `/graph/`. |
+| **Tag index** | All pages browsable by tag at `/tags/`. |
+| **Full-text search** | Press `/` to focus the search box. Supports fuzzy + exact match. |
+| **Instant navigation** | SPA-style page transitions — no full reload. |
+| **Dark/light mode** | Toggle via the icon (top right). |
+| **Code features** | Syntax highlighting, line numbers, copy buttons, inline annotations. |
+| **Keyboard shortcuts** | `/` to search, `Esc` to blur, click anchors for smooth scroll. |
+
+The plugin source lives at `mkdocs_wikilinks/` (local Python package, install
+via `pip install -e .`). It is a single-file plugin (~300 LOC) with zero
+runtime dependencies beyond MkDocs itself.
 - **Rotate the log** — when log.md exceeds 500 entries, rename `log-YYYY.md`,
   start fresh.
 - **Handle contradictions explicitly** — note both claims with dates, mark in
