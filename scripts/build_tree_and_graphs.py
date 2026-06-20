@@ -19,7 +19,7 @@ from pathlib import Path
 from collections import defaultdict
 from urllib.parse import quote
 
-REPO = Path("/root/HadesWiki")
+REPO = Path(__file__).resolve().parent.parent
 DOCS = REPO / "docs"
 ASSETS = DOCS / "assets"
 TREE_JSON = ASSETS / "wiki-tree.json"
