@@ -1,0 +1,903 @@
+{
+  "tree": {
+    "name": "HadesWiki",
+    "type": "folder",
+    "children": [
+      {
+        "name": "comparisons",
+        "type": "folder",
+        "children": [
+          {
+            "name": "rag-vs-llm-wiki",
+            "type": "file",
+            "title": "RAG vs LLM Wiki",
+            "url": "/comparisons/rag-vs-llm-wiki/",
+            "tags": [
+              "comparison",
+              "rag",
+              "vs",
+              "knowledge-base"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "concepts",
+        "type": "folder",
+        "children": [
+          {
+            "name": "llm-wiki-pattern",
+            "type": "file",
+            "title": "LLM Wiki Pattern",
+            "url": "/concepts/llm-wiki-pattern/",
+            "tags": [
+              "pattern",
+              "methodology",
+              "knowledge-base",
+              "architecture"
+            ]
+          },
+          {
+            "name": "memex",
+            "type": "file",
+            "title": "Memex",
+            "url": "/concepts/memex/",
+            "tags": [
+              "concept",
+              "history",
+              "memex",
+              "hypertext"
+            ]
+          },
+          {
+            "name": "obsidian",
+            "type": "file",
+            "title": "Obsidian",
+            "url": "/concepts/obsidian/",
+            "tags": [
+              "tool",
+              "editor",
+              "obsidian"
+            ]
+          },
+          {
+            "name": "operations",
+            "type": "file",
+            "title": "Operations",
+            "url": "/concepts/operations/",
+            "tags": [
+              "operations",
+              "workflow",
+              "ingest",
+              "query",
+              "lint",
+              "maintenance"
+            ]
+          },
+          {
+            "name": "qmd",
+            "type": "file",
+            "title": "qmd",
+            "url": "/concepts/qmd/",
+            "tags": [
+              "tool",
+              "cli",
+              "search",
+              "bm25",
+              "vector-search",
+              "mcp"
+            ]
+          },
+          {
+            "name": "source-karpathy-llm-wiki",
+            "type": "file",
+            "title": "Source \u2014 Karpathy's LLM Wiki gist",
+            "url": "/concepts/source-karpathy-llm-wiki/",
+            "tags": [
+              "source",
+              "article",
+              "gist",
+              "karpathy"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "entities",
+        "type": "folder",
+        "children": [
+          {
+            "name": "karpathy",
+            "type": "file",
+            "title": "Andrej Karpathy",
+            "url": "/entities/karpathy/",
+            "tags": [
+              "person",
+              "source-author"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "queries",
+        "type": "folder",
+        "children": [
+          {
+            "name": "synthesis-web-vs-rag-vs-llm-wiki",
+            "type": "file",
+            "title": "Synthesis \u2014 LLM Wiki vs the Web vs RAG",
+            "url": "/queries/synthesis-web-vs-rag-vs-llm-wiki/",
+            "tags": [
+              "meta",
+              "synthesis",
+              "comparison"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "raw",
+        "type": "folder",
+        "children": [
+          {
+            "name": "articles",
+            "type": "folder",
+            "children": [
+              {
+                "name": "karpathy-llm-wiki",
+                "type": "file",
+                "title": "Karpathy LLM Wiki",
+                "url": "/raw/articles/karpathy-llm-wiki/",
+                "tags": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "AGENT",
+        "type": "file",
+        "title": "Agent",
+        "url": "/AGENT/",
+        "tags": []
+      },
+      {
+        "name": "catalog",
+        "type": "file",
+        "title": "Catalog",
+        "url": "/catalog/",
+        "tags": []
+      },
+      {
+        "name": "graph",
+        "type": "file",
+        "title": "Wiki Graph",
+        "url": "/graph/",
+        "tags": [
+          "meta",
+          "navigation",
+          "graph",
+          "interactive"
+        ]
+      },
+      {
+        "name": "GUIDE",
+        "type": "file",
+        "title": "Guide",
+        "url": "/GUIDE/",
+        "tags": []
+      },
+      {
+        "name": "index",
+        "type": "file",
+        "title": "Index",
+        "url": "/",
+        "tags": []
+      },
+      {
+        "name": "log",
+        "type": "file",
+        "title": "Log",
+        "url": "/log/",
+        "tags": []
+      },
+      {
+        "name": "schema",
+        "type": "file",
+        "title": "HadesWiki Schema",
+        "url": "/schema/",
+        "tags": [
+          "schema",
+          "meta"
+        ]
+      },
+      {
+        "name": "tags",
+        "type": "file",
+        "title": "Tag Index",
+        "url": "/tags/",
+        "tags": [
+          "meta",
+          "navigation",
+          "taxonomy"
+        ]
+      }
+    ]
+  },
+  "pages": [
+    {
+      "path": "AGENT.md",
+      "slug": "AGENT",
+      "title": "Agent",
+      "url": "/AGENT/",
+      "tags": [],
+      "outgoing": [
+        "example"
+      ],
+      "folder": "",
+      "backlinks_count": 0,
+      "backlinks": []
+    },
+    {
+      "path": "GUIDE.md",
+      "slug": "GUIDE",
+      "title": "Guide",
+      "url": "/GUIDE/",
+      "tags": [],
+      "outgoing": [
+        "wikilinks"
+      ],
+      "folder": "",
+      "backlinks_count": 0,
+      "backlinks": []
+    },
+    {
+      "path": "catalog.md",
+      "slug": "catalog",
+      "title": "Catalog",
+      "url": "/catalog/",
+      "tags": [],
+      "outgoing": [
+        "catalog",
+        "karpathy",
+        "llm-wiki-pattern",
+        "memex",
+        "obsidian",
+        "operations",
+        "qmd",
+        "rag-vs-llm-wiki",
+        "schema",
+        "source-karpathy-llm-wiki",
+        "synthesis-web-vs-rag-vs-llm-wiki"
+      ],
+      "folder": "",
+      "backlinks_count": 9,
+      "backlinks": [
+        {
+          "slug": "catalog",
+          "title": "Catalog",
+          "url": "/catalog/"
+        },
+        {
+          "slug": "comparisons/rag-vs-llm-wiki",
+          "title": "RAG vs LLM Wiki",
+          "url": "/comparisons/rag-vs-llm-wiki/"
+        },
+        {
+          "slug": "concepts/operations",
+          "title": "Operations",
+          "url": "/concepts/operations/"
+        },
+        {
+          "slug": "concepts/qmd",
+          "title": "qmd",
+          "url": "/concepts/qmd/"
+        },
+        {
+          "slug": "concepts/source-karpathy-llm-wiki",
+          "title": "Source \u2014 Karpathy's LLM Wiki gist",
+          "url": "/concepts/source-karpathy-llm-wiki/"
+        },
+        {
+          "slug": "graph",
+          "title": "Wiki Graph",
+          "url": "/graph/"
+        },
+        {
+          "slug": "log",
+          "title": "Log",
+          "url": "/log/"
+        },
+        {
+          "slug": "queries/synthesis-web-vs-rag-vs-llm-wiki",
+          "title": "Synthesis \u2014 LLM Wiki vs the Web vs RAG",
+          "url": "/queries/synthesis-web-vs-rag-vs-llm-wiki/"
+        },
+        {
+          "slug": "tags",
+          "title": "Tag Index",
+          "url": "/tags/"
+        }
+      ]
+    },
+    {
+      "path": "comparisons/rag-vs-llm-wiki.md",
+      "slug": "comparisons/rag-vs-llm-wiki",
+      "title": "RAG vs LLM Wiki",
+      "url": "/comparisons/rag-vs-llm-wiki/",
+      "tags": [
+        "comparison",
+        "rag",
+        "vs",
+        "knowledge-base"
+      ],
+      "outgoing": [
+        "catalog",
+        "llm-wiki-pattern",
+        "obsidian",
+        "operations",
+        "qmd"
+      ],
+      "folder": "comparisons",
+      "backlinks_count": 5,
+      "backlinks": [
+        {
+          "slug": "catalog",
+          "title": "Catalog",
+          "url": "/catalog/"
+        },
+        {
+          "slug": "concepts/llm-wiki-pattern",
+          "title": "LLM Wiki Pattern",
+          "url": "/concepts/llm-wiki-pattern/"
+        },
+        {
+          "slug": "concepts/operations",
+          "title": "Operations",
+          "url": "/concepts/operations/"
+        },
+        {
+          "slug": "concepts/source-karpathy-llm-wiki",
+          "title": "Source \u2014 Karpathy's LLM Wiki gist",
+          "url": "/concepts/source-karpathy-llm-wiki/"
+        },
+        {
+          "slug": "queries/synthesis-web-vs-rag-vs-llm-wiki",
+          "title": "Synthesis \u2014 LLM Wiki vs the Web vs RAG",
+          "url": "/queries/synthesis-web-vs-rag-vs-llm-wiki/"
+        }
+      ]
+    },
+    {
+      "path": "concepts/llm-wiki-pattern.md",
+      "slug": "concepts/llm-wiki-pattern",
+      "title": "LLM Wiki Pattern",
+      "url": "/concepts/llm-wiki-pattern/",
+      "tags": [
+        "pattern",
+        "methodology",
+        "knowledge-base",
+        "architecture"
+      ],
+      "outgoing": [
+        "karpathy",
+        "memex",
+        "obsidian",
+        "operations",
+        "rag-vs-llm-wiki",
+        "schema"
+      ],
+      "folder": "concepts",
+      "backlinks_count": 10,
+      "backlinks": [
+        {
+          "slug": "catalog",
+          "title": "Catalog",
+          "url": "/catalog/"
+        },
+        {
+          "slug": "comparisons/rag-vs-llm-wiki",
+          "title": "RAG vs LLM Wiki",
+          "url": "/comparisons/rag-vs-llm-wiki/"
+        },
+        {
+          "slug": "concepts/memex",
+          "title": "Memex",
+          "url": "/concepts/memex/"
+        },
+        {
+          "slug": "concepts/obsidian",
+          "title": "Obsidian",
+          "url": "/concepts/obsidian/"
+        },
+        {
+          "slug": "concepts/operations",
+          "title": "Operations",
+          "url": "/concepts/operations/"
+        },
+        {
+          "slug": "concepts/qmd",
+          "title": "qmd",
+          "url": "/concepts/qmd/"
+        },
+        {
+          "slug": "concepts/source-karpathy-llm-wiki",
+          "title": "Source \u2014 Karpathy's LLM Wiki gist",
+          "url": "/concepts/source-karpathy-llm-wiki/"
+        },
+        {
+          "slug": "entities/karpathy",
+          "title": "Andrej Karpathy",
+          "url": "/entities/karpathy/"
+        },
+        {
+          "slug": "graph",
+          "title": "Wiki Graph",
+          "url": "/graph/"
+        },
+        {
+          "slug": "queries/synthesis-web-vs-rag-vs-llm-wiki",
+          "title": "Synthesis \u2014 LLM Wiki vs the Web vs RAG",
+          "url": "/queries/synthesis-web-vs-rag-vs-llm-wiki/"
+        }
+      ]
+    },
+    {
+      "path": "concepts/memex.md",
+      "slug": "concepts/memex",
+      "title": "Memex",
+      "url": "/concepts/memex/",
+      "tags": [
+        "concept",
+        "history",
+        "memex",
+        "hypertext"
+      ],
+      "outgoing": [
+        "llm-wiki-pattern",
+        "operations"
+      ],
+      "folder": "concepts",
+      "backlinks_count": 5,
+      "backlinks": [
+        {
+          "slug": "catalog",
+          "title": "Catalog",
+          "url": "/catalog/"
+        },
+        {
+          "slug": "concepts/llm-wiki-pattern",
+          "title": "LLM Wiki Pattern",
+          "url": "/concepts/llm-wiki-pattern/"
+        },
+        {
+          "slug": "concepts/source-karpathy-llm-wiki",
+          "title": "Source \u2014 Karpathy's LLM Wiki gist",
+          "url": "/concepts/source-karpathy-llm-wiki/"
+        },
+        {
+          "slug": "entities/karpathy",
+          "title": "Andrej Karpathy",
+          "url": "/entities/karpathy/"
+        },
+        {
+          "slug": "queries/synthesis-web-vs-rag-vs-llm-wiki",
+          "title": "Synthesis \u2014 LLM Wiki vs the Web vs RAG",
+          "url": "/queries/synthesis-web-vs-rag-vs-llm-wiki/"
+        }
+      ]
+    },
+    {
+      "path": "concepts/obsidian.md",
+      "slug": "concepts/obsidian",
+      "title": "Obsidian",
+      "url": "/concepts/obsidian/",
+      "tags": [
+        "tool",
+        "editor",
+        "obsidian"
+      ],
+      "outgoing": [
+        "karpathy",
+        "llm-wiki-pattern",
+        "operations",
+        "qmd",
+        "schema"
+      ],
+      "folder": "concepts",
+      "backlinks_count": 5,
+      "backlinks": [
+        {
+          "slug": "catalog",
+          "title": "Catalog",
+          "url": "/catalog/"
+        },
+        {
+          "slug": "comparisons/rag-vs-llm-wiki",
+          "title": "RAG vs LLM Wiki",
+          "url": "/comparisons/rag-vs-llm-wiki/"
+        },
+        {
+          "slug": "concepts/llm-wiki-pattern",
+          "title": "LLM Wiki Pattern",
+          "url": "/concepts/llm-wiki-pattern/"
+        },
+        {
+          "slug": "concepts/source-karpathy-llm-wiki",
+          "title": "Source \u2014 Karpathy's LLM Wiki gist",
+          "url": "/concepts/source-karpathy-llm-wiki/"
+        },
+        {
+          "slug": "entities/karpathy",
+          "title": "Andrej Karpathy",
+          "url": "/entities/karpathy/"
+        }
+      ]
+    },
+    {
+      "path": "concepts/operations.md",
+      "slug": "concepts/operations",
+      "title": "Operations",
+      "url": "/concepts/operations/",
+      "tags": [
+        "operations",
+        "workflow",
+        "ingest",
+        "query",
+        "lint",
+        "maintenance"
+      ],
+      "outgoing": [
+        "catalog",
+        "llm-wiki-pattern",
+        "log",
+        "rag-vs-llm-wiki",
+        "schema"
+      ],
+      "folder": "concepts",
+      "backlinks_count": 9,
+      "backlinks": [
+        {
+          "slug": "catalog",
+          "title": "Catalog",
+          "url": "/catalog/"
+        },
+        {
+          "slug": "comparisons/rag-vs-llm-wiki",
+          "title": "RAG vs LLM Wiki",
+          "url": "/comparisons/rag-vs-llm-wiki/"
+        },
+        {
+          "slug": "concepts/llm-wiki-pattern",
+          "title": "LLM Wiki Pattern",
+          "url": "/concepts/llm-wiki-pattern/"
+        },
+        {
+          "slug": "concepts/memex",
+          "title": "Memex",
+          "url": "/concepts/memex/"
+        },
+        {
+          "slug": "concepts/obsidian",
+          "title": "Obsidian",
+          "url": "/concepts/obsidian/"
+        },
+        {
+          "slug": "concepts/qmd",
+          "title": "qmd",
+          "url": "/concepts/qmd/"
+        },
+        {
+          "slug": "concepts/source-karpathy-llm-wiki",
+          "title": "Source \u2014 Karpathy's LLM Wiki gist",
+          "url": "/concepts/source-karpathy-llm-wiki/"
+        },
+        {
+          "slug": "entities/karpathy",
+          "title": "Andrej Karpathy",
+          "url": "/entities/karpathy/"
+        },
+        {
+          "slug": "queries/synthesis-web-vs-rag-vs-llm-wiki",
+          "title": "Synthesis \u2014 LLM Wiki vs the Web vs RAG",
+          "url": "/queries/synthesis-web-vs-rag-vs-llm-wiki/"
+        }
+      ]
+    },
+    {
+      "path": "concepts/qmd.md",
+      "slug": "concepts/qmd",
+      "title": "qmd",
+      "url": "/concepts/qmd/",
+      "tags": [
+        "tool",
+        "cli",
+        "search",
+        "bm25",
+        "vector-search",
+        "mcp"
+      ],
+      "outgoing": [
+        "catalog",
+        "llm-wiki-pattern",
+        "operations"
+      ],
+      "folder": "concepts",
+      "backlinks_count": 5,
+      "backlinks": [
+        {
+          "slug": "catalog",
+          "title": "Catalog",
+          "url": "/catalog/"
+        },
+        {
+          "slug": "comparisons/rag-vs-llm-wiki",
+          "title": "RAG vs LLM Wiki",
+          "url": "/comparisons/rag-vs-llm-wiki/"
+        },
+        {
+          "slug": "concepts/obsidian",
+          "title": "Obsidian",
+          "url": "/concepts/obsidian/"
+        },
+        {
+          "slug": "concepts/source-karpathy-llm-wiki",
+          "title": "Source \u2014 Karpathy's LLM Wiki gist",
+          "url": "/concepts/source-karpathy-llm-wiki/"
+        },
+        {
+          "slug": "queries/synthesis-web-vs-rag-vs-llm-wiki",
+          "title": "Synthesis \u2014 LLM Wiki vs the Web vs RAG",
+          "url": "/queries/synthesis-web-vs-rag-vs-llm-wiki/"
+        }
+      ]
+    },
+    {
+      "path": "concepts/source-karpathy-llm-wiki.md",
+      "slug": "concepts/source-karpathy-llm-wiki",
+      "title": "Source \u2014 Karpathy's LLM Wiki gist",
+      "url": "/concepts/source-karpathy-llm-wiki/",
+      "tags": [
+        "source",
+        "article",
+        "gist",
+        "karpathy"
+      ],
+      "outgoing": [
+        "catalog",
+        "karpathy",
+        "llm-wiki-pattern",
+        "log",
+        "memex",
+        "obsidian",
+        "operations",
+        "qmd",
+        "rag-vs-llm-wiki"
+      ],
+      "folder": "concepts",
+      "backlinks_count": 1,
+      "backlinks": [
+        {
+          "slug": "catalog",
+          "title": "Catalog",
+          "url": "/catalog/"
+        }
+      ]
+    },
+    {
+      "path": "entities/karpathy.md",
+      "slug": "entities/karpathy",
+      "title": "Andrej Karpathy",
+      "url": "/entities/karpathy/",
+      "tags": [
+        "person",
+        "source-author"
+      ],
+      "outgoing": [
+        "llm-wiki-pattern",
+        "memex",
+        "obsidian",
+        "operations"
+      ],
+      "folder": "entities",
+      "backlinks_count": 4,
+      "backlinks": [
+        {
+          "slug": "catalog",
+          "title": "Catalog",
+          "url": "/catalog/"
+        },
+        {
+          "slug": "concepts/llm-wiki-pattern",
+          "title": "LLM Wiki Pattern",
+          "url": "/concepts/llm-wiki-pattern/"
+        },
+        {
+          "slug": "concepts/obsidian",
+          "title": "Obsidian",
+          "url": "/concepts/obsidian/"
+        },
+        {
+          "slug": "concepts/source-karpathy-llm-wiki",
+          "title": "Source \u2014 Karpathy's LLM Wiki gist",
+          "url": "/concepts/source-karpathy-llm-wiki/"
+        }
+      ]
+    },
+    {
+      "path": "graph.md",
+      "slug": "graph",
+      "title": "Wiki Graph",
+      "url": "/graph/",
+      "tags": [
+        "meta",
+        "navigation",
+        "graph",
+        "interactive"
+      ],
+      "outgoing": [
+        "catalog",
+        "llm-wiki-pattern",
+        "tags"
+      ],
+      "folder": "",
+      "backlinks_count": 1,
+      "backlinks": [
+        {
+          "slug": "tags",
+          "title": "Tag Index",
+          "url": "/tags/"
+        }
+      ]
+    },
+    {
+      "path": "index.md",
+      "slug": "index",
+      "title": "Index",
+      "url": "/",
+      "tags": [],
+      "outgoing": [],
+      "folder": "",
+      "backlinks_count": 1,
+      "backlinks": [
+        {
+          "slug": "log",
+          "title": "Log",
+          "url": "/log/"
+        }
+      ]
+    },
+    {
+      "path": "log.md",
+      "slug": "log",
+      "title": "Log",
+      "url": "/log/",
+      "tags": [],
+      "outgoing": [
+        "catalog",
+        "index",
+        "page",
+        "wikilinks",
+        "xxx"
+      ],
+      "folder": "",
+      "backlinks_count": 2,
+      "backlinks": [
+        {
+          "slug": "concepts/operations",
+          "title": "Operations",
+          "url": "/concepts/operations/"
+        },
+        {
+          "slug": "concepts/source-karpathy-llm-wiki",
+          "title": "Source \u2014 Karpathy's LLM Wiki gist",
+          "url": "/concepts/source-karpathy-llm-wiki/"
+        }
+      ]
+    },
+    {
+      "path": "queries/synthesis-web-vs-rag-vs-llm-wiki.md",
+      "slug": "queries/synthesis-web-vs-rag-vs-llm-wiki",
+      "title": "Synthesis \u2014 LLM Wiki vs the Web vs RAG",
+      "url": "/queries/synthesis-web-vs-rag-vs-llm-wiki/",
+      "tags": [
+        "meta",
+        "synthesis",
+        "comparison"
+      ],
+      "outgoing": [
+        "catalog",
+        "llm-wiki-pattern",
+        "memex",
+        "operations",
+        "qmd",
+        "rag-vs-llm-wiki"
+      ],
+      "folder": "queries",
+      "backlinks_count": 1,
+      "backlinks": [
+        {
+          "slug": "catalog",
+          "title": "Catalog",
+          "url": "/catalog/"
+        }
+      ]
+    },
+    {
+      "path": "raw/articles/karpathy-llm-wiki.md",
+      "slug": "raw/articles/karpathy-llm-wiki",
+      "title": "Karpathy LLM Wiki",
+      "url": "/raw/articles/karpathy-llm-wiki/",
+      "tags": [],
+      "outgoing": [],
+      "folder": "raw/articles",
+      "backlinks_count": 0,
+      "backlinks": []
+    },
+    {
+      "path": "schema.md",
+      "slug": "schema",
+      "title": "HadesWiki Schema",
+      "url": "/schema/",
+      "tags": [
+        "schema",
+        "meta"
+      ],
+      "outgoing": [],
+      "folder": "",
+      "backlinks_count": 5,
+      "backlinks": [
+        {
+          "slug": "catalog",
+          "title": "Catalog",
+          "url": "/catalog/"
+        },
+        {
+          "slug": "concepts/llm-wiki-pattern",
+          "title": "LLM Wiki Pattern",
+          "url": "/concepts/llm-wiki-pattern/"
+        },
+        {
+          "slug": "concepts/obsidian",
+          "title": "Obsidian",
+          "url": "/concepts/obsidian/"
+        },
+        {
+          "slug": "concepts/operations",
+          "title": "Operations",
+          "url": "/concepts/operations/"
+        },
+        {
+          "slug": "tags",
+          "title": "Tag Index",
+          "url": "/tags/"
+        }
+      ]
+    },
+    {
+      "path": "tags.md",
+      "slug": "tags",
+      "title": "Tag Index",
+      "url": "/tags/",
+      "tags": [
+        "meta",
+        "navigation",
+        "taxonomy"
+      ],
+      "outgoing": [
+        "catalog",
+        "graph",
+        "schema"
+      ],
+      "folder": "",
+      "backlinks_count": 1,
+      "backlinks": [
+        {
+          "slug": "graph",
+          "title": "Wiki Graph",
+          "url": "/graph/"
+        }
+      ]
+    }
+  ]
+}

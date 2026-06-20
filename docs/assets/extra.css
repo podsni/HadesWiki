@@ -1,176 +1,783 @@
-/* HadesWiki custom styles */
+/* ============================================================================
+   HadesWiki — Obsidian-inspired stylesheet
+   Two-pane layout, Inter font, purple accents, glassmorphism sidebar
+   ============================================================================ */
 
-/* === Wikilink styling === */
-a[href]:not(.md-button):not(.md-tabs__link):not(.md-nav__link):not(.md-source) {
-  /* Standard markdown links */
+/* === Fonts === */
+@import url('https://rsms.me/inter/inter.css');
+
+:root {
+  --hw-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --hw-font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', Menlo, monospace;
+  --hw-accent: #8b5cf6;          /* Obsidian purple */
+  --hw-accent-dim: #a78bfa;
+  --hw-accent-dark: #7c3aed;
+  --hw-bg-dark: #1e1e1e;
+  --hw-bg-darker: #161616;
+  --hw-bg-light: #fafafa;
+  --hw-fg-dark: #dcddde;
+  --hw-fg-light: #2e3338;
+  --hw-border-dark: #2f3136;
+  --hw-border-light: #e5e7eb;
+  --hw-radius: 8px;
+  --hw-sidebar-w: 260px;
+  --hw-outline-w: 220px;
 }
 
-/* Highlight wikilinks — they don't have a class by default, but we style
-   internal links differently from external by checking the href pattern.
-   Internal links start with ./ or ../ or /HadesWiki/ */
-.md-content a[href^="./"]:not(.md-button):not(.md-tabs__link),
-.md-content a[href^="../"]:not(.md-button):not(.md-tabs__link) {
-  color: var(--md-accent-fg-color);
-  font-weight: 500;
+/* === Override MkDocs Material defaults to be more Obsidian-like === */
+
+/* Wider content area, more readable line-height */
+.md-content {
+  font-family: var(--hw-font-sans);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  letter-spacing: 0.01em;
 }
 
-/* Missing wikilink (target page doesn't exist) */
+.md-content h1,
+.md-content h2,
+.md-content h3,
+.md-content h4 {
+  font-family: var(--hw-font-sans);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.md-content h1 {
+  font-size: 2.1rem;
+  margin-top: 0;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--hw-border-light);
+}
+
+[data-md-color-scheme="slate"] .md-content h1 {
+  border-bottom-color: var(--hw-border-dark);
+}
+
+.md-content h2 {
+  font-size: 1.5rem;
+  margin-top: 2.2rem;
+}
+
+.md-content h3 {
+  font-size: 1.2rem;
+  margin-top: 1.8rem;
+}
+
+.md-content p,
+.md-content li {
+  margin-bottom: 0.65em;
+}
+
+.md-content code {
+  font-family: var(--hw-font-mono);
+  font-size: 0.87em;
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  background: rgba(139, 92, 246, 0.08);
+}
+
+[data-md-color-scheme="slate"] .md-content code {
+  background: rgba(139, 92, 246, 0.15);
+}
+
+/* === Wikilinks — Obsidian purple === */
+.md-content a:not(.md-button):not(.md-tabs__link):not(.md-nav__link):not(.md-source) {
+  color: var(--hw-accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.md-content a:not(.md-button):not(.md-tabs__link):not(.md-nav__link):not(.md-source):hover {
+  border-bottom-color: var(--hw-accent);
+  color: var(--hw-accent-dark);
+}
+
+[data-md-color-scheme="slate"] .md-content a:not(.md-button):not(.md-tabs__link):not(.md-nav__link):not(.md-source) {
+  color: var(--hw-accent-dim);
+}
+
+[data-md-color-scheme="slate"] .md-content a:not(.md-button):not(.md-tabs__link):not(.md-nav__link):not(.md-source):hover {
+  color: var(--hw-accent);
+}
+
+/* Missing wikilink (broken link) — Obsidian shows dashed underline + grey */
 .wikilink-missing {
   display: inline-block;
-  padding: 0 0.3em;
-  border-radius: 0.2em;
-  background: var(--md-default-fg-color--lightest);
-  color: var(--md-default-fg-color--light);
+  padding: 0 0.2em;
+  color: #9ca3af;
   text-decoration: line-through;
-  font-style: italic;
+  text-decoration-style: wavy;
+  text-decoration-color: #ef4444;
   cursor: help;
 }
 
-/* === Backlinks panel === */
-.wikilinks-backlinks {
-  margin-top: 3rem;
-  padding: 1.5rem;
-  border-left: 4px solid var(--md-accent-fg-color);
-  background: var(--md-default-bg-color);
-  border-radius: 0.2rem;
-  box-shadow: var(--md-shadow-z1);
+/* External links get a subtle indicator */
+.md-content a[href^="http"]:not(.md-button):not(.md-tabs__link)::after {
+  content: " ↗";
+  font-size: 0.75em;
+  opacity: 0.6;
+  vertical-align: super;
 }
 
-.wikilinks-backlinks h2 {
-  margin-top: 0 !important;
-  font-size: 1.1rem !important;
-  color: var(--md-default-fg-color--light);
+/* === Tag pills — Obsidian style === */
+.hw-tag {
+  display: inline-block;
+  padding: 1px 8px;
+  margin: 2px 3px 2px 0;
+  font-size: 0.78em;
+  font-weight: 500;
+  font-family: var(--hw-font-sans);
+  color: var(--hw-accent-dark);
+  background: rgba(139, 92, 246, 0.10);
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.15s ease;
+  cursor: pointer;
+}
+
+.hw-tag::before {
+  content: "#";
+  opacity: 0.55;
+  margin-right: 1px;
+}
+
+.hw-tag:hover {
+  background: rgba(139, 92, 246, 0.20);
+  border-color: var(--hw-accent);
+  transform: translateY(-1px);
+}
+
+[data-md-color-scheme="slate"] .hw-tag {
+  color: var(--hw-accent-dim);
+  background: rgba(167, 139, 250, 0.12);
+  border-color: rgba(167, 139, 250, 0.30);
+}
+
+/* === Page metadata header (Obsidian-style properties block) === */
+.hw-page-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 12px 14px;
+  margin-bottom: 24px;
+  font-size: 0.85em;
+  background: rgba(139, 92, 246, 0.04);
+  border: 1px solid rgba(139, 92, 246, 0.15);
+  border-radius: var(--hw-radius);
+}
+
+[data-md-color-scheme="slate"] .hw-page-meta {
+  background: rgba(139, 92, 246, 0.08);
+  border-color: rgba(139, 92, 246, 0.20);
+}
+
+.hw-page-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-right: 12px;
+}
+
+.hw-page-meta-label {
+  color: #6b7280;
+  font-weight: 600;
   text-transform: uppercase;
+  font-size: 0.7em;
   letter-spacing: 0.05em;
 }
 
+[data-md-color-scheme="slate"] .hw-page-meta-label {
+  color: #9ca3af;
+}
+
+/* === Backlinks panel — Obsidian bottom panel === */
+.wikilinks-backlinks {
+  margin-top: 48px;
+  padding: 16px 20px;
+  background: rgba(139, 92, 246, 0.04);
+  border: 1px solid rgba(139, 92, 246, 0.15);
+  border-radius: var(--hw-radius);
+}
+
+[data-md-color-scheme="slate"] .wikilinks-backlinks {
+  background: rgba(139, 92, 246, 0.08);
+  border-color: rgba(139, 92, 246, 0.20);
+}
+
+.wikilinks-backlinks h2 {
+  margin-top: 0;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--hw-accent-dark);
+  border: none;
+  padding: 0;
+}
+
+[data-md-color-scheme="slate"] .wikilinks-backlinks h2 {
+  color: var(--hw-accent-dim);
+}
+
 .wikilinks-backlinks ul {
-  margin: 0;
-  padding-left: 0;
   list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 6px;
 }
 
 .wikilinks-backlinks li {
-  padding: 0.3rem 0;
-  border-bottom: 1px dashed var(--md-default-fg-color--lightest);
+  margin: 0;
 }
 
-.wikilinks-backlinks li:last-child {
-  border-bottom: none;
-}
-
-/* === Graph view === */
-.graph-view {
-  margin: 2rem 0;
-  padding: 1rem;
-  background: var(--md-code-bg-color);
-  border-radius: 0.5rem;
-  overflow: auto;
-}
-
-.graph-view svg {
+.wikilinks-backlinks a {
   display: block;
-  margin: 0 auto;
-  max-width: 100%;
-  height: auto;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.5);
+  color: var(--hw-fg-light);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  transition: all 0.15s ease;
 }
 
-/* === Tag chips === */
-.tag-chip {
-  display: inline-block;
-  padding: 0.2em 0.6em;
-  margin: 0.1em 0.2em;
-  background: var(--md-accent-fg-color--transparent);
-  color: var(--md-accent-fg-color);
-  border-radius: 1em;
-  font-size: 0.85em;
-  font-weight: 500;
-  text-decoration: none !important;
-  transition: background 0.2s;
+[data-md-color-scheme="slate"] .wikilinks-backlinks a {
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--hw-fg-dark);
+  border-color: rgba(255, 255, 255, 0.06);
 }
 
-.tag-chip:hover {
-  background: var(--md-accent-fg-color);
-  color: var(--md-primary-bg-color);
+.wikilinks-backlinks a:hover {
+  background: var(--hw-accent);
+  color: white;
+  transform: translateX(2px);
+  border-color: var(--hw-accent);
 }
 
-.tag-section {
-  margin: 2rem 0;
+/* === Outgoing links panel === */
+.hw-outgoing {
+  margin-top: 32px;
+  padding: 14px 18px;
+  border-radius: var(--hw-radius);
+  background: rgba(0, 0, 0, 0.02);
+  border: 1px solid var(--hw-border-light);
 }
 
-.tag-section h3 {
-  margin-bottom: 0.5rem;
-  text-transform: capitalize;
+[data-md-color-scheme="slate"] .hw-outgoing {
+  background: rgba(255, 255, 255, 0.02);
+  border-color: var(--hw-border-dark);
 }
 
-.tag-section .tag-pages {
+.hw-outgoing h3 {
+  margin-top: 0;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #6b7280;
+  border: none;
+  padding: 0;
+}
+
+.hw-outgoing ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
+  flex-wrap: wrap;
+  gap: 6px;
 }
 
-.tag-section .tag-page {
-  padding: 0.5rem 0.8rem;
-  border-left: 3px solid var(--md-accent-fg-color);
-  background: var(--md-default-bg-color--light);
-  border-radius: 0.2rem;
-  transition: transform 0.15s;
+.hw-outgoing li {
+  margin: 0;
 }
 
-.tag-section .tag-page:hover {
-  transform: translateX(4px);
-  background: var(--md-accent-fg-color--transparent);
-}
-
-/* === Improved search === */
-.md-search-result mark {
-  background: var(--md-accent-fg-color--transparent);
-  color: var(--md-accent-fg-color);
-  padding: 0 0.1em;
-}
-
-/* === Mermaid diagram theming === */
-.mermaid {
-  background: transparent !important;
-  text-align: center;
-  margin: 1.5rem 0;
-}
-
-/* === Page metadata footer === */
-.page-metadata {
-  margin-top: 3rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--md-default-fg-color--lightest);
+.hw-outgoing a {
+  display: inline-block;
+  padding: 4px 10px;
   font-size: 0.85em;
-  color: var(--md-default-fg-color--light);
+  border-radius: 6px;
+  background: rgba(139, 92, 246, 0.08);
+  color: var(--hw-accent-dark);
+  border: 1px solid rgba(139, 92, 246, 0.18);
 }
 
-/* === Index/tag list styling === */
-.md-typeset .grid.cards {
-  grid-gap: 1rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-  margin: 1rem 0;
+.hw-outgoing a:hover {
+  background: var(--hw-accent);
+  color: white;
+  border-color: var(--hw-accent);
 }
 
-.md-typeset .grid.cards > * {
-  background: var(--md-default-bg-color--light);
-  border-radius: 0.5rem;
-  padding: 1rem;
-  transition: transform 0.15s, box-shadow 0.15s;
+/* === Hover preview popup === */
+#hw-hover-preview {
+  position: fixed;
+  z-index: 1000;
+  max-width: 480px;
+  min-width: 320px;
+  padding: 16px 18px;
+  font-family: var(--hw-font-sans);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  background: var(--hw-bg-light);
+  color: var(--hw-fg-light);
+  border: 1px solid var(--hw-border-light);
+  border-radius: var(--hw-radius);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(139, 92, 246, 0.10);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+  overflow: hidden;
 }
 
-.md-typeset .grid.cards > *:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--md-shadow-z2);
+[data-md-color-scheme="slate"] #hw-hover-preview {
+  background: #252525;
+  color: var(--hw-fg-dark);
+  border-color: var(--hw-border-dark);
 }
 
-/* === Animation for SPA page transitions === */
-.md-main__inner {
-  animation: fadeIn 0.3s ease-in;
+#hw-hover-preview.visible {
+  opacity: 1;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(8px); }
-  to   { opacity: 1; transform: translateY(0); }
+#hw-hover-preview .hw-preview-title {
+  margin: 0 0 8px 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--hw-accent-dark);
+  border-bottom: 1px solid rgba(139, 92, 246, 0.15);
+  padding-bottom: 6px;
+}
+
+[data-md-color-scheme="slate"] #hw-hover-preview .hw-preview-title {
+  color: var(--hw-accent-dim);
+}
+
+#hw-hover-preview .hw-preview-tags {
+  margin-bottom: 10px;
+}
+
+#hw-hover-preview .hw-preview-excerpt {
+  font-size: 0.85em;
+  color: #6b7280;
+  max-height: 200px;
+  overflow: hidden;
+  position: relative;
+}
+
+[data-md-color-scheme="slate"] #hw-hover-preview .hw-preview-excerpt {
+  color: #9ca3af;
+}
+
+#hw-hover-preview .hw-preview-excerpt::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: linear-gradient(to bottom, transparent, var(--hw-bg-light));
+}
+
+[data-md-color-scheme="slate"] #hw-hover-preview .hw-preview-excerpt::after {
+  background: linear-gradient(to bottom, transparent, #252525);
+}
+
+#hw-hover-preview .hw-preview-link {
+  display: block;
+  margin-top: 10px;
+  font-size: 0.78em;
+  text-align: right;
+  color: var(--hw-accent);
+  font-weight: 600;
+}
+
+/* === Custom sidebar (file tree) === */
+.hw-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--hw-sidebar-w);
+  height: 100vh;
+  padding: 70px 0 30px 0;
+  background: var(--hw-bg-light);
+  border-right: 1px solid var(--hw-border-light);
+  overflow-y: auto;
+  z-index: 5;
+  font-family: var(--hw-font-sans);
+  font-size: 0.85rem;
+  transition: transform 0.25s ease, margin-left 0.25s ease;
+}
+
+[data-md-color-scheme="slate"] .hw-sidebar {
+  background: var(--hw-bg-dark);
+  border-right-color: var(--hw-border-dark);
+}
+
+.hw-sidebar.collapsed {
+  transform: translateX(-100%);
+}
+
+.hw-sidebar-header {
+  padding: 0 16px 12px 16px;
+  border-bottom: 1px solid var(--hw-border-light);
+  margin-bottom: 8px;
+}
+
+[data-md-color-scheme="slate"] .hw-sidebar-header {
+  border-bottom-color: var(--hw-border-dark);
+}
+
+.hw-sidebar-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--hw-accent-dark);
+  letter-spacing: -0.01em;
+}
+
+[data-md-color-scheme="slate"] .hw-sidebar-title {
+  color: var(--hw-accent-dim);
+}
+
+.hw-sidebar-search {
+  width: 100%;
+  margin-top: 8px;
+  padding: 6px 10px;
+  font-size: 0.8rem;
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid var(--hw-border-light);
+  border-radius: 6px;
+  color: inherit;
+  font-family: inherit;
+}
+
+[data-md-color-scheme="slate"] .hw-sidebar-search {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: var(--hw-border-dark);
+}
+
+.hw-sidebar-search:focus {
+  outline: none;
+  border-color: var(--hw-accent);
+  background: white;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.15);
+}
+
+[data-md-color-scheme="slate"] .hw-sidebar-search:focus {
+  background: var(--hw-bg-darker);
+}
+
+.hw-tree {
+  padding: 0 8px;
+}
+
+.hw-tree-folder {
+  margin-top: 2px;
+}
+
+.hw-tree-folder-label {
+  display: flex;
+  align-items: center;
+  padding: 4px 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #6b7280;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 4px;
+  transition: background 0.1s ease;
+}
+
+.hw-tree-folder-label:hover {
+  background: rgba(139, 92, 246, 0.06);
+}
+
+.hw-tree-folder-label::before {
+  content: "▸";
+  display: inline-block;
+  width: 12px;
+  margin-right: 4px;
+  font-size: 0.7em;
+  transition: transform 0.15s ease;
+  color: #9ca3af;
+}
+
+.hw-tree-folder.open > .hw-tree-folder-label::before {
+  transform: rotate(90deg);
+}
+
+.hw-tree-folder-children {
+  display: none;
+  padding-left: 14px;
+  border-left: 1px solid rgba(139, 92, 246, 0.10);
+  margin-left: 14px;
+}
+
+.hw-tree-folder.open > .hw-tree-folder-children {
+  display: block;
+}
+
+.hw-tree-file {
+  display: flex;
+  align-items: center;
+  padding: 4px 10px;
+  font-size: 0.85rem;
+  color: var(--hw-fg-light);
+  text-decoration: none;
+  border-radius: 4px;
+  margin: 1px 0;
+  border-left: 2px solid transparent;
+  transition: all 0.1s ease;
+}
+
+[data-md-color-scheme="slate"] .hw-tree-file {
+  color: var(--hw-fg-dark);
+}
+
+.hw-tree-file::before {
+  content: "📄";
+  font-size: 0.75em;
+  margin-right: 6px;
+  opacity: 0.6;
+}
+
+.hw-tree-file:hover {
+  background: rgba(139, 92, 246, 0.06);
+  border-left-color: rgba(139, 92, 246, 0.30);
+}
+
+.hw-tree-file.active {
+  background: rgba(139, 92, 246, 0.12);
+  border-left-color: var(--hw-accent);
+  color: var(--hw-accent-dark);
+  font-weight: 600;
+}
+
+[data-md-color-scheme="slate"] .hw-tree-file.active {
+  color: var(--hw-accent-dim);
+}
+
+/* === Sidebar toggle button === */
+.hw-sidebar-toggle {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 100;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--hw-bg-light);
+  color: var(--hw-fg-light);
+  border: 1px solid var(--hw-border-light);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: all 0.15s ease;
+}
+
+[data-md-color-scheme="slate"] .hw-sidebar-toggle {
+  background: var(--hw-bg-dark);
+  color: var(--hw-fg-dark);
+  border-color: var(--hw-border-dark);
+}
+
+.hw-sidebar-toggle:hover {
+  background: var(--hw-accent);
+  color: white;
+  border-color: var(--hw-accent);
+}
+
+/* === Layout shifts when sidebar is visible === */
+body.hw-sidebar-visible .md-main__inner {
+  margin-left: var(--hw-sidebar-w);
+  max-width: none;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+body.hw-sidebar-visible .md-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Hide the default left nav when our sidebar is on */
+body.hw-sidebar-visible .md-sidebar--primary {
+  display: none !important;
+}
+
+/* === Tag chip cloud (tags page) === */
+.hw-tag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 20px 0;
+}
+
+.hw-tag-cloud .hw-tag {
+  font-size: 0.9em;
+  padding: 4px 10px;
+}
+
+/* === Graph page styling === */
+.hw-graph-page {
+  max-width: 100%;
+  margin: 0;
+}
+
+.hw-graph-container {
+  width: 100%;
+  height: 75vh;
+  min-height: 500px;
+  border-radius: var(--hw-radius);
+  overflow: hidden;
+  border: 1px solid var(--hw-border-light);
+  background: var(--hw-bg-light);
+}
+
+[data-md-color-scheme="slate"] .hw-graph-container {
+  border-color: var(--hw-border-dark);
+  background: var(--hw-bg-darker);
+}
+
+/* === Local graph (per-page subgraph) === */
+.hw-local-graph {
+  margin: 24px 0;
+  padding: 16px;
+  border-radius: var(--hw-radius);
+  background: rgba(139, 92, 246, 0.03);
+  border: 1px solid rgba(139, 92, 246, 0.12);
+}
+
+[data-md-color-scheme="slate"] .hw-local-graph {
+  background: rgba(139, 92, 246, 0.06);
+  border-color: rgba(139, 92, 246, 0.18);
+}
+
+.hw-local-graph h3 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--hw-accent-dark);
+  border: none;
+  padding: 0;
+}
+
+[data-md-color-scheme="slate"] .hw-local-graph h3 {
+  color: var(--hw-accent-dim);
+}
+
+.hw-local-graph-container {
+  width: 100%;
+  height: 280px;
+  border-radius: 6px;
+  background: white;
+  overflow: hidden;
+}
+
+[data-md-color-scheme="slate"] .hw-local-graph-container {
+  background: #1a1a1a;
+}
+
+/* === Mobile responsive === */
+@media (max-width: 768px) {
+  .hw-sidebar {
+    transform: translateX(-100%);
+  }
+  body.hw-sidebar-visible .hw-sidebar {
+    transform: translateX(0);
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.2);
+  }
+  body.hw-sidebar-visible .md-main__inner {
+    margin-left: 0;
+  }
+  .hw-sidebar-toggle {
+    display: flex;
+  }
+}
+
+@media (min-width: 769px) {
+  .hw-sidebar-toggle {
+    display: flex;
+  }
+}
+
+/* === Admonitions — Obsidian callout style === */
+.admonition {
+  border-radius: var(--hw-radius);
+  border-left-width: 4px;
+  padding: 14px 18px;
+  margin: 18px 0;
+}
+
+.admonition.note,
+.admonition.info {
+  border-left-color: var(--hw-accent);
+}
+
+.admonition-title {
+  font-weight: 600;
+}
+
+/* === Tables — Obsidian style === */
+.md-typeset table:not([class]) {
+  font-size: 0.85em;
+  border-radius: var(--hw-radius);
+  overflow: hidden;
+  border: 1px solid var(--hw-border-light);
+}
+
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) {
+  border-color: var(--hw-border-dark);
+}
+
+.md-typeset table:not([class]) th {
+  background: rgba(139, 92, 246, 0.08);
+  color: var(--hw-accent-dark);
+  font-weight: 700;
+  text-align: left;
+}
+
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) th {
+  color: var(--hw-accent-dim);
+}
+
+.md-typeset table:not([class]) tr:hover {
+  background: rgba(139, 92, 246, 0.03);
+}
+
+/* === Keyboard shortcut hint === */
+kbd {
+  display: inline-block;
+  padding: 1px 6px;
+  font-family: var(--hw-font-mono);
+  font-size: 0.78em;
+  color: var(--hw-fg-light);
+  background: rgba(0, 0, 0, 0.06);
+  border: 1px solid var(--hw-border-light);
+  border-bottom-width: 2px;
+  border-radius: 4px;
+}
+
+[data-md-color-scheme="slate"] kbd {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--hw-fg-dark);
+  border-color: var(--hw-border-dark);
+}
+
+/* === Smooth scroll === */
+html {
+  scroll-behavior: smooth;
+}
+
+/* === Selection === */
+::selection {
+  background: rgba(139, 92, 246, 0.30);
+  color: inherit;
 }

@@ -34,8 +34,10 @@ jobs:
           pip install -r requirements.txt
           pip install -e .                # install local mkdocs_wikilinks plugin
 
-      - name: Generate graph and tag pages
-        run: python scripts/build_graph.py
+      - name: Generate graph, tag pages, sidebar tree and local graphs
+        run: |
+          python scripts/build_graph.py
+          python scripts/build_tree_and_graphs.py
 
       - name: Build site
         run: mkdocs build --strict
