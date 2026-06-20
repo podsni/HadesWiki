@@ -35,4 +35,5 @@ the [[llm-wiki-pattern|LLM Wiki pattern]] idea file that this wiki is built from
 
 The single source for this entity page is
 [raw/articles/karpathy-llm-wiki.md](../raw/articles/karpathy-llm-wiki.md) — Karpathy's
-own gist.
+   own gist. (Link is relative to repo root; on the published site, see the
+   "Raw Sources" section in the nav.)

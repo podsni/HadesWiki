@@ -70,5 +70,7 @@ skip. Different → flag drift, then re-ingest following [[operations|the ingest
 ## Related
 
 - [raw/articles/karpathy-llm-wiki.md](../raw/articles/karpathy-llm-wiki.md) — the raw source
+   (Note: link is relative to repo root. In the published site, see the "Raw
+   Sources" section in the nav.)
 - [[llm-wiki-pattern]] — what the source describes
 - [[operations]] — how the source was processed

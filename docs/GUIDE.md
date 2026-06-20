@@ -7,19 +7,19 @@ Pick the path that matches your role and follow the steps.
 
 - [Choose Your Role](#choose-your-role)
 - [Part 1: Installation](#part-1-installation)
-  - [1.1 — Web Browser (zero install)](#11--web-browser-zero-install)
-  - [1.2 — Clone the Repo](#12--clone-the-repo)
-  - [1.3 — Obsidian Desktop (recommended reader)](#13--obsidian-desktop-recommended-reader)
-  - [1.4 — LLM CLI Agent](#14--llm-cli-agent)
-  - [1.5 — Search Tooling (qmd)](#15--search-tooling-qmd)
-  - [1.6 — Optional: GitHub Publishing](#16--optional-github-publishing)
+  - [1.1 — Web Browser (zero install)](#11-web-browser-zero-install)
+  - [1.2 — Clone the Repo](#12-clone-the-repo)
+  - [1.3 — Obsidian Desktop (recommended reader)](#13-obsidian-desktop-recommended-reader)
+  - [1.4 — LLM CLI Agent](#14-llm-cli-agent)
+  - [1.5 — Search Tooling (qmd)](#15-search-tooling-qmd)
+  - [1.6 — Optional: GitHub Publishing](#16-optional-github-publishing)
 - [Part 2: Configuration](#part-2-configuration)
 - [Part 3: Daily Usage](#part-3-daily-usage)
-  - [3.1 — Reading & Browsing](#31--reading--browsing)
-  - [3.2 — Adding a Source](#32--adding-a-source)
-  - [3.3 — Asking Questions](#33--asking-questions)
-  - [3.4 — Lint & Maintenance](#34--lint--maintenance)
-  - [3.5 — Editing Pages Manually](#35--editing-pages-manually)
+  - [3.1 — Reading & Browsing](#31-reading-browsing)
+  - [3.2 — Adding a Source](#32-adding-a-source)
+  - [3.3 — Asking Questions](#33-asking-questions)
+  - [3.4 — Lint & Maintenance](#34-lint-maintenance)
+  - [3.5 — Editing Pages Manually](#35-editing-pages-manually)
 - [Part 4: Workflows by Role](#part-4-workflows-by-role)
 - [Part 5: Troubleshooting](#part-5-troubleshooting)
 - [Part 6: Reference](#part-6-reference)
@@ -859,8 +859,8 @@ Wiki content: MIT. Raw sources retain their original licenses — see each
 
 ## See Also
 
-- **[README.md](./README.md)** — short overview
-- **[AGENT.md](./AGENT.md)** — LLM agent playbook
+- **[Home page](home.md)** — short overview
+- **[AGENT.md](AGENT.md)** — LLM agent playbook
 - **[schema.md](./schema.md)** — full conventions
 - **[index.md](./index.md)** — content catalog
 - **[log.md](./log.md)** — activity timeline

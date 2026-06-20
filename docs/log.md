@@ -72,3 +72,26 @@
   Part 5 Troubleshooting (8 common issues), Part 6 Reference
 - README.md updated with deep-link to GUIDE.md sections
 - Covers all 4 LLM CLI options: Codex / Claude Code / OpenCode / Hermes
+
+## [2026-06-12] restructure | Move wiki content into docs/ for MkDocs
+- Renamed all top-level wiki files: README.md, GUIDE.md, AGENT.md, schema.md,
+  index.md, log.md → moved to docs/
+- Subdirs (entities/, concepts/, comparisons/, queries/, raw/) moved into docs/
+- New repo-root README.md: slim landing page pointing to the live site
+- docs/home.md: was docs/README.md, renamed to avoid clash with index.md
+
+## [2026-06-12] create | MkDocs Material site
+- mkdocs.yml: Material theme with deep purple / deep orange palette,
+  instant nav, full-text search, dark mode toggle
+- requirements.txt: mkdocs, mkdocs-material, pymdown-extensions
+- .github/workflows/pages.yml: builds on push to main, deploys via actions/deploy-pages@v4
+- LICENSE: MIT
+- Build verified: mkdocs build --strict passes with 0 warnings (16 HTML pages, 3.5MB)
+- Roamlinks plugin removed (false-positive noise from literal [[xxx]] examples;
+  full nav covers navigation; Obsidian handles [[wikilinks]] natively)
+
+## [2026-06-12] deploy | GitHub Pages deployment
+- Workflow: .github/workflows/pages.yml
+- Source: main branch
+- Output: gh-pages (via actions/deploy-pages)
+- URL: https://podsni.github.io/HadesWiki/

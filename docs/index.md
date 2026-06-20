@@ -31,4 +31,4 @@
 
 ## Raw sources
 
-- [karpathy-llm-wiki.md](../raw/articles/karpathy-llm-wiki.md) — The canonical Karpathy gist (sha256 `dc3efe98…`); immutable.
+- [karpathy-llm-wiki.md](raw/articles/karpathy-llm-wiki.md) — The canonical Karpathy gist (sha256 `dc3efe98…`); immutable.

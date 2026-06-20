@@ -1,0 +1,124 @@
+site_name: HadesWiki
+site_description: A personal knowledge base built with Karpathy's LLM Wiki pattern — LLM-maintained, persistent, compounding.
+site_url: https://podsni.github.io/HadesWiki/
+site_author: podsni
+
+repo_name: podsni/HadesWiki
+repo_url: https://github.com/podsni/HadesWiki
+edit_uri: edit/main/docs/
+
+docs_dir: docs
+site_dir: site
+
+theme:
+  name: material
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.indexes
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.tabs.link
+    - content.tooltips
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: deep purple
+      accent: deep orange
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: deep purple
+      accent: deep orange
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  font:
+    text: Inter
+    code: JetBrains Mono
+  icon:
+    repo: fontawesome/brands/github
+    edit: material/pencil
+    view: material/eye
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+      toc_depth: 3
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.smartsymbols
+  - pymdownx.keys
+
+plugins:
+  - search:
+      lang: en
+
+nav:
+  - Home: home.md
+  - Install & Usage: GUIDE.md
+  - Wiki:
+      - Wiki Index: index.md
+      - Activity Log: log.md
+      - Concepts:
+          - LLM Wiki Pattern: concepts/llm-wiki-pattern.md
+          - Operations: concepts/operations.md
+          - Memex: concepts/memex.md
+          - Obsidian: concepts/obsidian.md
+          - qmd: concepts/qmd.md
+          - Source — Karpathy gist: concepts/source-karpathy-llm-wiki.md
+      - Comparisons:
+          - RAG vs LLM Wiki: comparisons/rag-vs-llm-wiki.md
+      - Queries:
+          - Synthesis — Web vs RAG vs LLM Wiki: queries/synthesis-web-vs-rag-vs-llm-wiki.md
+      - Entities:
+          - Andrej Karpathy: entities/karpathy.md
+      - Schema & Conventions: schema.md
+  - Agent Playbook: AGENT.md
+  - Raw Sources:
+      - Karpathy's LLM Wiki gist: raw/articles/karpathy-llm-wiki.md
+
+extra:
+  generator: false
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/podsni
+      name: podsni on GitHub
+
+copyright: >
+  Copyright &copy; 2026 podsni ·
+  <a href="https://github.com/podsni/HadesWiki/blob/main/LICENSE">MIT License</a> ·
+  Built with <a href="https://squidfunk.github.io/mkdocs-material/">Material for MkDocs</a> ·
+  Wiki content follows the
+  <a href="https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f">Karpathy LLM Wiki pattern</a>.
+
+exclude_docs: |
+  _meta/
+  *.pyc
+  __pycache__/
