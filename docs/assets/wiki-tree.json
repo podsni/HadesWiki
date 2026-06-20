@@ -17,9 +17,13 @@
               "rag",
               "vs",
               "knowledge-base"
-            ]
+            ],
+            "icon": "\u2696\ufe0f",
+            "slug": "comparisons/rag-vs-llm-wiki",
+            "category": "content"
           }
-        ]
+        ],
+        "file_count": 1
       },
       {
         "name": "concepts",
@@ -35,7 +39,10 @@
               "methodology",
               "knowledge-base",
               "architecture"
-            ]
+            ],
+            "icon": "\ud83d\udca1",
+            "slug": "concepts/llm-wiki-pattern",
+            "category": "content"
           },
           {
             "name": "memex",
@@ -47,7 +54,10 @@
               "history",
               "memex",
               "hypertext"
-            ]
+            ],
+            "icon": "\ud83d\udca1",
+            "slug": "concepts/memex",
+            "category": "content"
           },
           {
             "name": "obsidian",
@@ -58,7 +68,10 @@
               "tool",
               "editor",
               "obsidian"
-            ]
+            ],
+            "icon": "\ud83d\udca1",
+            "slug": "concepts/obsidian",
+            "category": "content"
           },
           {
             "name": "operations",
@@ -72,7 +85,10 @@
               "query",
               "lint",
               "maintenance"
-            ]
+            ],
+            "icon": "\ud83d\udca1",
+            "slug": "concepts/operations",
+            "category": "content"
           },
           {
             "name": "qmd",
@@ -86,7 +102,10 @@
               "bm25",
               "vector-search",
               "mcp"
-            ]
+            ],
+            "icon": "\ud83d\udca1",
+            "slug": "concepts/qmd",
+            "category": "content"
           },
           {
             "name": "source-karpathy-llm-wiki",
@@ -98,9 +117,13 @@
               "article",
               "gist",
               "karpathy"
-            ]
+            ],
+            "icon": "\ud83d\udca1",
+            "slug": "concepts/source-karpathy-llm-wiki",
+            "category": "content"
           }
-        ]
+        ],
+        "file_count": 6
       },
       {
         "name": "entities",
@@ -114,9 +137,13 @@
             "tags": [
               "person",
               "source-author"
-            ]
+            ],
+            "icon": "\ud83d\udc64",
+            "slug": "entities/karpathy",
+            "category": "content"
           }
-        ]
+        ],
+        "file_count": 1
       },
       {
         "name": "queries",
@@ -131,99 +158,87 @@
               "meta",
               "synthesis",
               "comparison"
-            ]
+            ],
+            "icon": "\ud83d\udd0d",
+            "slug": "queries/synthesis-web-vs-rag-vs-llm-wiki",
+            "category": "content"
           }
-        ]
-      },
-      {
-        "name": "raw",
-        "type": "folder",
-        "children": [
-          {
-            "name": "articles",
-            "type": "folder",
-            "children": [
-              {
-                "name": "karpathy-llm-wiki",
-                "type": "file",
-                "title": "Karpathy LLM Wiki",
-                "url": "/raw/articles/karpathy-llm-wiki/",
-                "tags": []
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "name": "AGENT",
-        "type": "file",
-        "title": "Agent",
-        "url": "/AGENT/",
-        "tags": []
-      },
-      {
-        "name": "catalog",
-        "type": "file",
-        "title": "Catalog",
-        "url": "/catalog/",
-        "tags": []
-      },
-      {
-        "name": "graph",
-        "type": "file",
-        "title": "Wiki Graph",
-        "url": "/graph/",
-        "tags": [
-          "meta",
-          "navigation",
-          "graph",
-          "interactive"
-        ]
-      },
-      {
-        "name": "GUIDE",
-        "type": "file",
-        "title": "Guide",
-        "url": "/GUIDE/",
-        "tags": []
-      },
-      {
-        "name": "index",
-        "type": "file",
-        "title": "Index",
-        "url": "/",
-        "tags": []
-      },
-      {
-        "name": "log",
-        "type": "file",
-        "title": "Log",
-        "url": "/log/",
-        "tags": []
-      },
-      {
-        "name": "schema",
-        "type": "file",
-        "title": "HadesWiki Schema",
-        "url": "/schema/",
-        "tags": [
-          "schema",
-          "meta"
-        ]
-      },
-      {
-        "name": "tags",
-        "type": "file",
-        "title": "Tag Index",
-        "url": "/tags/",
-        "tags": [
-          "meta",
-          "navigation",
-          "taxonomy"
-        ]
+        ],
+        "file_count": 1
       }
-    ]
+    ],
+    "file_count": 9
   },
+  "meta_section": [
+    {
+      "title": "Agent",
+      "url": "/AGENT/",
+      "icon": "\ud83e\udd16",
+      "slug": "AGENT",
+      "tags": []
+    },
+    {
+      "title": "Catalog",
+      "url": "/catalog/",
+      "icon": "\ud83d\udcda",
+      "slug": "catalog",
+      "tags": []
+    },
+    {
+      "title": "Guide",
+      "url": "/GUIDE/",
+      "icon": "\ud83d\udcd6",
+      "slug": "GUIDE",
+      "tags": []
+    },
+    {
+      "title": "HadesWiki Schema",
+      "url": "/schema/",
+      "icon": "\ud83d\udccb",
+      "slug": "schema",
+      "tags": [
+        "schema",
+        "meta"
+      ]
+    },
+    {
+      "title": "Index",
+      "url": "/",
+      "icon": "\ud83c\udfe0",
+      "slug": "index",
+      "tags": []
+    },
+    {
+      "title": "Log",
+      "url": "/log/",
+      "icon": "\ud83d\udcdc",
+      "slug": "log",
+      "tags": []
+    },
+    {
+      "title": "Tag Index",
+      "url": "/tags/",
+      "icon": "\ud83c\udff7\ufe0f",
+      "slug": "tags",
+      "tags": [
+        "meta",
+        "navigation",
+        "taxonomy"
+      ]
+    },
+    {
+      "title": "Wiki Graph",
+      "url": "/graph/",
+      "icon": "\ud83d\udd78\ufe0f",
+      "slug": "graph",
+      "tags": [
+        "meta",
+        "navigation",
+        "graph",
+        "interactive"
+      ]
+    }
+  ],
   "pages": [
     {
       "path": "AGENT.md",
@@ -235,6 +250,9 @@
         "example"
       ],
       "folder": "",
+      "category": "meta",
+      "show_in_tree": false,
+      "icon": "\ud83e\udd16",
       "backlinks_count": 0,
       "backlinks": []
     },
@@ -248,6 +266,9 @@
         "wikilinks"
       ],
       "folder": "",
+      "category": "meta",
+      "show_in_tree": false,
+      "icon": "\ud83d\udcd6",
       "backlinks_count": 0,
       "backlinks": []
     },
@@ -271,6 +292,9 @@
         "synthesis-web-vs-rag-vs-llm-wiki"
       ],
       "folder": "",
+      "category": "meta",
+      "show_in_tree": false,
+      "icon": "\ud83d\udcda",
       "backlinks_count": 9,
       "backlinks": [
         {
@@ -339,6 +363,9 @@
         "qmd"
       ],
       "folder": "comparisons",
+      "category": "content",
+      "show_in_tree": true,
+      "icon": "\u2696\ufe0f",
       "backlinks_count": 5,
       "backlinks": [
         {
@@ -388,6 +415,9 @@
         "schema"
       ],
       "folder": "concepts",
+      "category": "content",
+      "show_in_tree": true,
+      "icon": "\ud83d\udca1",
       "backlinks_count": 10,
       "backlinks": [
         {
@@ -458,6 +488,9 @@
         "operations"
       ],
       "folder": "concepts",
+      "category": "content",
+      "show_in_tree": true,
+      "icon": "\ud83d\udca1",
       "backlinks_count": 5,
       "backlinks": [
         {
@@ -505,6 +538,9 @@
         "schema"
       ],
       "folder": "concepts",
+      "category": "content",
+      "show_in_tree": true,
+      "icon": "\ud83d\udca1",
       "backlinks_count": 5,
       "backlinks": [
         {
@@ -555,6 +591,9 @@
         "schema"
       ],
       "folder": "concepts",
+      "category": "content",
+      "show_in_tree": true,
+      "icon": "\ud83d\udca1",
       "backlinks_count": 9,
       "backlinks": [
         {
@@ -623,6 +662,9 @@
         "operations"
       ],
       "folder": "concepts",
+      "category": "content",
+      "show_in_tree": true,
+      "icon": "\ud83d\udca1",
       "backlinks_count": 5,
       "backlinks": [
         {
@@ -675,6 +717,9 @@
         "rag-vs-llm-wiki"
       ],
       "folder": "concepts",
+      "category": "content",
+      "show_in_tree": true,
+      "icon": "\ud83d\udca1",
       "backlinks_count": 1,
       "backlinks": [
         {
@@ -700,6 +745,9 @@
         "operations"
       ],
       "folder": "entities",
+      "category": "content",
+      "show_in_tree": true,
+      "icon": "\ud83d\udc64",
       "backlinks_count": 4,
       "backlinks": [
         {
@@ -741,6 +789,9 @@
         "tags"
       ],
       "folder": "",
+      "category": "meta",
+      "show_in_tree": false,
+      "icon": "\ud83d\udd78\ufe0f",
       "backlinks_count": 1,
       "backlinks": [
         {
@@ -758,6 +809,9 @@
       "tags": [],
       "outgoing": [],
       "folder": "",
+      "category": "meta",
+      "show_in_tree": false,
+      "icon": "\ud83c\udfe0",
       "backlinks_count": 1,
       "backlinks": [
         {
@@ -781,6 +835,9 @@
         "xxx"
       ],
       "folder": "",
+      "category": "meta",
+      "show_in_tree": false,
+      "icon": "\ud83d\udcdc",
       "backlinks_count": 2,
       "backlinks": [
         {
@@ -814,6 +871,9 @@
         "rag-vs-llm-wiki"
       ],
       "folder": "queries",
+      "category": "content",
+      "show_in_tree": true,
+      "icon": "\ud83d\udd0d",
       "backlinks_count": 1,
       "backlinks": [
         {
@@ -831,6 +891,9 @@
       "tags": [],
       "outgoing": [],
       "folder": "raw/articles",
+      "category": "hidden",
+      "show_in_tree": false,
+      "icon": "\ud83d\udce6",
       "backlinks_count": 0,
       "backlinks": []
     },
@@ -845,6 +908,9 @@
       ],
       "outgoing": [],
       "folder": "",
+      "category": "meta",
+      "show_in_tree": false,
+      "icon": "\ud83d\udccb",
       "backlinks_count": 5,
       "backlinks": [
         {
@@ -890,6 +956,9 @@
         "schema"
       ],
       "folder": "",
+      "category": "meta",
+      "show_in_tree": false,
+      "icon": "\ud83c\udff7\ufe0f",
       "backlinks_count": 1,
       "backlinks": [
         {
@@ -899,5 +968,12 @@
         }
       ]
     }
-  ]
+  ],
+  "stats": {
+    "total": 18,
+    "content": 9,
+    "meta": 8,
+    "hidden": 1,
+    "shown_in_tree": 9
+  }
 }

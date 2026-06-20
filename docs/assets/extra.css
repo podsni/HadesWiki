@@ -393,21 +393,36 @@
   font-weight: 600;
 }
 
-/* === Custom sidebar (file tree) === */
+/* === Custom sidebar (Obsidian-style file explorer) === */
 .hw-sidebar {
   position: fixed;
   top: 0;
   left: 0;
   width: var(--hw-sidebar-w);
   height: 100vh;
-  padding: 70px 0 30px 0;
+  padding: 0 0 30px 0;
   background: var(--hw-bg-light);
   border-right: 1px solid var(--hw-border-light);
   overflow-y: auto;
+  overflow-x: hidden;
   z-index: 5;
   font-family: var(--hw-font-sans);
   font-size: 0.85rem;
-  transition: transform 0.25s ease, margin-left 0.25s ease;
+  transition: transform 0.25s ease;
+  scrollbar-width: thin;
+}
+
+.hw-sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.hw-sidebar::-webkit-scrollbar-thumb {
+  background: rgba(139, 92, 246, 0.20);
+  border-radius: 3px;
+}
+
+.hw-sidebar::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 92, 246, 0.40);
 }
 
 [data-md-color-scheme="slate"] .hw-sidebar {
@@ -419,30 +434,89 @@
   transform: translateX(-100%);
 }
 
-.hw-sidebar-header {
-  padding: 0 16px 12px 16px;
+/* === Vault header (Obsidian's vault switcher area) === */
+.hw-sidebar-vault {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 14px 10px 14px;
+  background: var(--hw-bg-light);
   border-bottom: 1px solid var(--hw-border-light);
-  margin-bottom: 8px;
 }
 
-[data-md-color-scheme="slate"] .hw-sidebar-header {
+[data-md-color-scheme="slate"] .hw-sidebar-vault {
+  background: var(--hw-bg-dark);
   border-bottom-color: var(--hw-border-dark);
 }
 
-.hw-sidebar-title {
+.hw-sidebar-vault-name {
+  display: flex;
+  align-items: center;
+  gap: 6px;
   font-weight: 700;
   font-size: 0.95rem;
   color: var(--hw-accent-dark);
   letter-spacing: -0.01em;
 }
 
-[data-md-color-scheme="slate"] .hw-sidebar-title {
+.hw-sidebar-vault-name::before {
+  content: "🟣";
+  font-size: 0.9em;
+}
+
+[data-md-color-scheme="slate"] .hw-sidebar-vault-name {
   color: var(--hw-accent-dim);
+}
+
+.hw-sidebar-vault-actions {
+  display: flex;
+  gap: 4px;
+}
+
+.hw-sidebar-icon-btn {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: #6b7280;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: all 0.1s ease;
+}
+
+.hw-sidebar-icon-btn:hover {
+  background: rgba(139, 92, 246, 0.10);
+  color: var(--hw-accent-dark);
+}
+
+[data-md-color-scheme="slate"] .hw-sidebar-icon-btn {
+  color: #9ca3af;
+}
+
+[data-md-color-scheme="slate"] .hw-sidebar-icon-btn:hover {
+  color: var(--hw-accent-dim);
+  background: rgba(167, 139, 250, 0.12);
+}
+
+/* === Search / filter === */
+.hw-sidebar-search-wrap {
+  padding: 8px 12px 6px 12px;
+  background: var(--hw-bg-light);
+}
+
+[data-md-color-scheme="slate"] .hw-sidebar-search-wrap {
+  background: var(--hw-bg-dark);
 }
 
 .hw-sidebar-search {
   width: 100%;
-  margin-top: 8px;
   padding: 6px 10px;
   font-size: 0.8rem;
   background: rgba(0, 0, 0, 0.03);
@@ -450,6 +524,7 @@
   border-radius: 6px;
   color: inherit;
   font-family: inherit;
+  transition: all 0.15s ease;
 }
 
 [data-md-color-scheme="slate"] .hw-sidebar-search {
@@ -461,103 +536,261 @@
   outline: none;
   border-color: var(--hw-accent);
   background: white;
-  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.15);
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.12);
 }
 
 [data-md-color-scheme="slate"] .hw-sidebar-search:focus {
   background: var(--hw-bg-darker);
 }
 
-.hw-tree {
-  padding: 0 8px;
+/* === View options row (sort + collapse all) === */
+.hw-sidebar-tools {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 12px 8px 12px;
+  font-size: 0.72rem;
+  color: #6b7280;
 }
 
+[data-md-color-scheme="slate"] .hw-sidebar-tools {
+  color: #9ca3af;
+}
+
+.hw-sidebar-sort {
+  background: transparent;
+  border: none;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: background 0.1s ease;
+}
+
+.hw-sidebar-sort:hover {
+  background: rgba(139, 92, 246, 0.08);
+  color: var(--hw-accent-dark);
+}
+
+[data-md-color-scheme="slate"] .hw-sidebar-sort:hover {
+  color: var(--hw-accent-dim);
+}
+
+.hw-sidebar-collapse-all {
+  background: transparent;
+  border: none;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 4px;
+  transition: background 0.1s ease;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.hw-sidebar-collapse-all:hover {
+  background: rgba(139, 92, 246, 0.08);
+  color: var(--hw-accent-dark);
+}
+
+[data-md-color-scheme="slate"] .hw-sidebar-collapse-all:hover {
+  color: var(--hw-accent-dim);
+}
+
+/* === Section header (Obsidian: NOTES, TAGS, PINNED, etc.) === */
+.hw-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px 4px 14px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.10em;
+  color: #6b7280;
+  user-select: none;
+}
+
+[data-md-color-scheme="slate"] .hw-section-header {
+  color: #9ca3af;
+}
+
+.hw-section-header-toggle {
+  background: transparent;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-size: 0.85em;
+  line-height: 1;
+}
+
+.hw-section-header-toggle:hover {
+  color: var(--hw-accent-dark);
+}
+
+[data-md-color-scheme="slate"] .hw-section-header-toggle:hover {
+  color: var(--hw-accent-dim);
+}
+
+/* === Tree === */
+.hw-tree {
+  padding: 0 6px 12px 6px;
+}
+
+/* === Folders (Obsidian style: chevron + folder name + count) === */
 .hw-tree-folder {
-  margin-top: 2px;
+  margin-top: 1px;
 }
 
 .hw-tree-folder-label {
   display: flex;
   align-items: center;
-  padding: 4px 8px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: #6b7280;
+  gap: 4px;
+  padding: 4px 8px 4px 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--hw-fg-light);
   cursor: pointer;
   user-select: none;
   border-radius: 4px;
-  transition: background 0.1s ease;
+  transition: background 0.08s ease;
+  position: relative;
+}
+
+[data-md-color-scheme="slate"] .hw-tree-folder-label {
+  color: var(--hw-fg-dark);
 }
 
 .hw-tree-folder-label:hover {
   background: rgba(139, 92, 246, 0.06);
 }
 
-.hw-tree-folder-label::before {
-  content: "▸";
+.hw-tree-folder-chevron {
   display: inline-block;
-  width: 12px;
-  margin-right: 4px;
-  font-size: 0.7em;
-  transition: transform 0.15s ease;
+  width: 14px;
+  font-size: 0.55em;
   color: #9ca3af;
+  transition: transform 0.15s ease;
+  text-align: center;
+  flex-shrink: 0;
 }
 
-.hw-tree-folder.open > .hw-tree-folder-label::before {
+.hw-tree-folder.open > .hw-tree-folder-label > .hw-tree-folder-chevron {
   transform: rotate(90deg);
+}
+
+.hw-tree-folder-icon {
+  font-size: 0.95em;
+  flex-shrink: 0;
+  filter: saturate(0.85);
+}
+
+.hw-tree-folder-name {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hw-tree-folder-count {
+  font-size: 0.72rem;
+  color: #9ca3af;
+  font-weight: 500;
+  margin-left: auto;
+  padding-left: 8px;
 }
 
 .hw-tree-folder-children {
   display: none;
   padding-left: 14px;
-  border-left: 1px solid rgba(139, 92, 246, 0.10);
-  margin-left: 14px;
+  margin-left: 10px;
+  border-left: 1px solid var(--hw-border-light);
+}
+
+[data-md-color-scheme="slate"] .hw-tree-folder-children {
+  border-left-color: rgba(255, 255, 255, 0.05);
 }
 
 .hw-tree-folder.open > .hw-tree-folder-children {
   display: block;
 }
 
+/* === Files (Obsidian style: icon + name, indent under folder) === */
 .hw-tree-file {
   display: flex;
   align-items: center;
-  padding: 4px 10px;
-  font-size: 0.85rem;
+  gap: 6px;
+  padding: 4px 8px 4px 6px;
+  font-size: 0.84rem;
   color: var(--hw-fg-light);
   text-decoration: none;
   border-radius: 4px;
   margin: 1px 0;
-  border-left: 2px solid transparent;
-  transition: all 0.1s ease;
+  transition: all 0.08s ease;
+  position: relative;
 }
 
 [data-md-color-scheme="slate"] .hw-tree-file {
   color: var(--hw-fg-dark);
 }
 
-.hw-tree-file::before {
-  content: "📄";
-  font-size: 0.75em;
-  margin-right: 6px;
-  opacity: 0.6;
+.hw-tree-file-icon {
+  font-size: 0.95em;
+  flex-shrink: 0;
+  filter: saturate(0.85);
+  width: 14px;
+  text-align: center;
+}
+
+.hw-tree-file-name {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .hw-tree-file:hover {
   background: rgba(139, 92, 246, 0.06);
-  border-left-color: rgba(139, 92, 246, 0.30);
 }
 
 .hw-tree-file.active {
   background: rgba(139, 92, 246, 0.12);
-  border-left-color: var(--hw-accent);
   color: var(--hw-accent-dark);
   font-weight: 600;
 }
 
+.hw-tree-file.active::before {
+  content: "";
+  position: absolute;
+  left: -1px;
+  top: 4px;
+  bottom: 4px;
+  width: 2px;
+  background: var(--hw-accent);
+  border-radius: 2px;
+}
+
 [data-md-color-scheme="slate"] .hw-tree-file.active {
   color: var(--hw-accent-dim);
+}
+
+/* === Empty state === */
+.hw-tree-empty {
+  padding: 12px 14px;
+  font-size: 0.8rem;
+  color: #9ca3af;
+  font-style: italic;
+  text-align: center;
 }
 
 /* === Sidebar toggle button === */
@@ -566,8 +799,8 @@
   top: 12px;
   left: 12px;
   z-index: 100;
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -576,8 +809,9 @@
   border: 1px solid var(--hw-border-light);
   border-radius: 6px;
   cursor: pointer;
-  font-size: 1.1rem;
+  font-size: 1rem;
   transition: all 0.15s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
 }
 
 [data-md-color-scheme="slate"] .hw-sidebar-toggle {
@@ -608,6 +842,20 @@ body.hw-sidebar-visible .md-content {
 /* Hide the default left nav when our sidebar is on */
 body.hw-sidebar-visible .md-sidebar--primary {
   display: none !important;
+}
+
+/* === Mobile responsive === */
+@media (max-width: 768px) {
+  .hw-sidebar {
+    transform: translateX(-100%);
+  }
+  body.hw-sidebar-visible .hw-sidebar {
+    transform: translateX(0);
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.2);
+  }
+  body.hw-sidebar-visible .md-main__inner {
+    margin-left: 0;
+  }
 }
 
 /* === Tag chip cloud (tags page) === */
