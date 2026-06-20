@@ -1,0 +1,25 @@
+# Local — never committed
+.DS_Store
+*.swp
+*.swo
+.idea/
+.vscode/
+*.tmp
+*.bak
+
+# Obsidian workspace config (per-machine, not part of the wiki)
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.trash/
+
+# Build/cache (none yet, but reserved)
+node_modules/
+dist/
+__pycache__/
+*.pyc
+
+# Local search index (if qmd is added later)
+.qmd/
+
+# Logs (the wiki's own log.md stays; this is for tooling logs)
+*.log
