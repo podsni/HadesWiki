@@ -81,7 +81,6 @@ plugins:
       lang: en
 
 nav:
-  - Home: home.md
   - Install & Usage: GUIDE.md
   - Wiki:
       - Wiki Catalog: catalog.md

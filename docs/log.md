@@ -78,7 +78,7 @@
   catalog.md, log.md → moved to docs/
 - Subdirs (entities/, concepts/, comparisons/, queries/, raw/) moved into docs/
 - New repo-root README.md: slim landing page pointing to the live site
-- docs/home.md: was docs/README.md, renamed to avoid clash with catalog.md
+- docs/index.md: was docs/README.md, renamed to avoid clash with catalog.md
 
 ## [2026-06-12] create | MkDocs Material site
 - mkdocs.yml: Material theme with deep purple / deep orange palette,
@@ -98,8 +98,8 @@
 
 ## [2026-06-12] restructure | Rename index.md → catalog.md for MkDocs home
 - MkDocs auto-uses index.md as site root (`/`)
-- Wanted Home page (home.md) at `/` instead → renamed index.md to catalog.md
-- Updated 40 internal references across 6 files (schema.md, AGENT.md, home.md,
+- Wanted Home page (index.md) at `/` instead → renamed index.md to catalog.md
+- Updated 40 internal references across 6 files (schema.md, AGENT.md, index.md,
   GUIDE.md, log.md, source-karpathy-llm-wiki.md)
 - Nav now: Home > Install & Usage > Wiki (Catalog, Activity Log, Concepts...)
 - raw/articles/karpathy-llm-wiki.md: untouched (raw/ is immutable)

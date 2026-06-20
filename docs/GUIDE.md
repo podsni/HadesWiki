@@ -859,7 +859,7 @@ Wiki content: MIT. Raw sources retain their original licenses — see each
 
 ## See Also
 
-- **[Home page](home.md)** — short overview
+- **[Home page](index.md)** — short overview
 - **[AGENT.md](AGENT.md)** — LLM agent playbook
 - **[schema.md](./schema.md)** — full conventions
 - **[catalog.md](catalog.md)** — content catalog
